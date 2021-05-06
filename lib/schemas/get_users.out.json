@@ -1,18 +1,22 @@
 {
     "type": "object",
     "properties": {
-        "first_name": {
-            "required": false,
+        "count": {
+            "type": "integer"
+        },
+        "current_page": {
             "type": "string"
         },
-        "last_name": {
-            "required": false,
-            "type": "string"
+        "has_next_page": {
+            "type": "boolean"
         },
-        "email": {
-            "type": "string"
+        "has_prev_page": {
+            "type": "boolean"
         },
-        "stock_location_id": {
+        "limit": {
+            "type": "integer"
+        },
+        "page_count": {
             "type": "string"
         }
     }

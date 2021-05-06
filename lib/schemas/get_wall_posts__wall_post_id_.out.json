@@ -1,8 +1,34 @@
 {
     "type": "object",
     "properties": {
-        "wall_post_id": {
-            "required": true,
+        "created": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "deleted": {
+            "description": "READ-ONLY - only present if it's an deleted object",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "message": {
+            "type": "string"
+        },
+        "modified": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "project_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "user_id": {
+            "format": "uuid",
             "type": "string"
         }
     }

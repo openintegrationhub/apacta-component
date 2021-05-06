@@ -1,9 +1,4 @@
 {
     "type": "object",
-    "properties": {
-        "clocking_record_id": {
-            "required": true,
-            "type": "string"
-        }
-    }
+    "properties": {}
 }

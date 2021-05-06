@@ -1,20 +1,4 @@
 {
     "type": "object",
-    "properties": {
-        "requestBody": {
-            "type": "object",
-            "properties": {
-                "file": {
-                    "type": "string",
-                    "format": "binary"
-                },
-                "description": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "file"
-            ]
-        }
-    }
+    "properties": {}
 }

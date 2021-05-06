@@ -1,4 +1,9 @@
 {
     "type": "object",
-    "properties": {}
+    "properties": {
+        "status": {
+            "default": "ok",
+            "type": "string"
+        }
+    }
 }

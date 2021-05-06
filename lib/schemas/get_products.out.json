@@ -1,14 +1,22 @@
 {
     "type": "object",
     "properties": {
-        "name": {
+        "count": {
+            "type": "integer"
+        },
+        "current_page": {
             "type": "string"
         },
-        "product_number": {
-            "type": "string",
-            "format": "uuid"
+        "has_next_page": {
+            "type": "boolean"
         },
-        "barcode": {
+        "has_prev_page": {
+            "type": "boolean"
+        },
+        "limit": {
+            "type": "integer"
+        },
+        "page_count": {
             "type": "string"
         }
     }

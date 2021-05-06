@@ -1,9 +1,119 @@
 {
     "type": "object",
     "properties": {
-        "invoice_id": {
-            "required": true,
+        "company_id": {
+            "format": "uuid",
             "type": "string"
+        },
+        "contact_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "created": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "created_by_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "currency_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "date_from": {
+            "format": "date",
+            "type": "string"
+        },
+        "date_to": {
+            "format": "date",
+            "type": "string"
+        },
+        "deleted": {
+            "description": "READ-ONLY - only present if it's an deleted object",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "erp_id": {
+            "maxLength": 255,
+            "type": "string"
+        },
+        "erp_payment_term_id": {
+            "maxLength": 255,
+            "type": "string"
+        },
+        "eu_customer": {
+            "type": "boolean"
+        },
+        "gross_payment": {
+            "format": "float",
+            "type": "number"
+        },
+        "id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "integration_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "invoice_number": {
+            "format": "int32",
+            "maxLength": 8,
+            "type": "integer"
+        },
+        "is_draft": {
+            "type": "boolean"
+        },
+        "is_locked": {
+            "type": "boolean"
+        },
+        "is_offer": {
+            "type": "boolean"
+        },
+        "issued_date": {
+            "format": "date",
+            "type": "string"
+        },
+        "message": {
+            "maxLength": 8192,
+            "type": "string"
+        },
+        "modified": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "net_payment": {
+            "format": "float",
+            "type": "number"
+        },
+        "offer_number": {
+            "format": "int32",
+            "maxLength": 8,
+            "type": "integer"
+        },
+        "payment_due_date": {
+            "format": "date",
+            "type": "string"
+        },
+        "payment_term_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "project_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "reference": {
+            "maxLength": 255,
+            "type": "string"
+        },
+        "vat_percent": {
+            "format": "int32",
+            "maxLength": 2,
+            "type": "integer"
         }
     }
 }

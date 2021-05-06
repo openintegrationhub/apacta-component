@@ -1,11 +1,22 @@
 {
     "type": "object",
     "properties": {
-        "name": {
-            "required": false,
+        "count": {
+            "type": "integer"
+        },
+        "current_page": {
             "type": "string"
         },
-        "identifier": {
+        "has_next_page": {
+            "type": "boolean"
+        },
+        "has_prev_page": {
+            "type": "boolean"
+        },
+        "limit": {
+            "type": "integer"
+        },
+        "page_count": {
             "type": "string"
         }
     }

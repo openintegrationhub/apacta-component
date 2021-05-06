@@ -1,24 +1,22 @@
 {
     "type": "object",
     "properties": {
-        "name": {
-            "required": false,
+        "count": {
+            "type": "integer"
+        },
+        "current_page": {
             "type": "string"
         },
-        "cvr": {
-            "type": "string"
+        "has_next_page": {
+            "type": "boolean"
         },
-        "ean": {
-            "type": "string"
+        "has_prev_page": {
+            "type": "boolean"
         },
-        "erp_id": {
-            "type": "string"
+        "limit": {
+            "type": "integer"
         },
-        "contact_type": {
-            "type": "string",
-            "format": "uuid"
-        },
-        "city": {
+        "page_count": {
             "type": "string"
         }
     }

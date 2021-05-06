@@ -1,8 +1,94 @@
 {
     "type": "object",
     "properties": {
-        "company_id": {
-            "required": true,
+        "city_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "contact_person_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "created": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "created_by_id": {
+            "description": "Read-only",
+            "format": "uuid",
+            "type": "string"
+        },
+        "cvr": {
+            "maxLength": 255,
+            "type": "string"
+        },
+        "deleted": {
+            "description": "READ-ONLY - only present if it's an deleted object",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "expired": {
+            "format": "date-time",
+            "type": "string"
+        },
+        "file_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "invoice_email": {
+            "format": "email",
+            "maxLength": 255,
+            "type": "string"
+        },
+        "language_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "modified": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "name": {
+            "maxLength": 255,
+            "type": "string"
+        },
+        "next_invoice_number": {
+            "format": "int32",
+            "maxLength": 8,
+            "type": "integer"
+        },
+        "phone": {
+            "description": "Format like eg. `28680133` or `046158971404`",
+            "maxLength": 32,
+            "type": "string"
+        },
+        "phone_countrycode": {
+            "description": "Format like eg. `45` or `49`",
+            "maxLength": 3,
+            "type": "string"
+        },
+        "receive_form_mails": {
+            "format": "email",
+            "maxLength": 255,
+            "type": "string"
+        },
+        "street_name": {
+            "maxLength": 255,
+            "type": "string"
+        },
+        "vat_percent": {
+            "format": "int32",
+            "maxLength": 12,
+            "type": "integer"
+        },
+        "website": {
+            "maxLength": 255,
             "type": "string"
         }
     }

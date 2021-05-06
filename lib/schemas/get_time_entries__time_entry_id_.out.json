@@ -1,10 +1,64 @@
 {
     "type": "object",
     "properties": {
-        "time_entry_id": {
-            "required": true,
-            "type": "string",
-            "format": "uuid"
+        "created": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "created_by_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "deleted": {
+            "description": "READ-ONLY - only present if it's an deleted object",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "form_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "from_time": {
+            "format": "dateTime",
+            "type": "string"
+        },
+        "id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "is_all_day": {
+            "type": "boolean"
+        },
+        "modified": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "modified_by_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "project_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "sum": {
+            "description": "Amount of seconds",
+            "format": "int32",
+            "type": "integer"
+        },
+        "time_entry_type_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "to_time": {
+            "format": "dateTime",
+            "type": "string"
+        },
+        "user_id": {
+            "format": "uuid",
+            "type": "string"
         }
     }
 }

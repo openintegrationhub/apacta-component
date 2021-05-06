@@ -1,9 +1,63 @@
 {
     "type": "object",
     "properties": {
-        "material_id": {
-            "required": true,
+        "barcode": {
+            "maxLength": 255,
             "type": "string"
+        },
+        "billing_cycle": {
+            "maxLength": 255,
+            "type": "string"
+        },
+        "company_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "cost_price": {
+            "format": "float",
+            "type": "number"
+        },
+        "created": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "created_by_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "deleted": {
+            "description": "READ-ONLY - only present if it's an deleted object",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "description": {
+            "maxLength": 8192,
+            "type": "string"
+        },
+        "id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "is_single_usage": {
+            "type": "boolean"
+        },
+        "modified": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "modified_by_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "name": {
+            "maxLength": 2048,
+            "type": "string"
+        },
+        "selling_price": {
+            "format": "float",
+            "type": "number"
         }
     }
 }

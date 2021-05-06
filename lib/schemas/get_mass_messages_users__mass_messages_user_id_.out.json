@@ -1,8 +1,81 @@
 {
     "type": "object",
     "properties": {
-        "mass_messages_user_id": {
-            "required": true,
+        "created": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "created_by_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "deleted": {
+            "description": "READ-ONLY - only present if it's an deleted object",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "is_read": {
+            "type": "boolean"
+        },
+        "is_sent_email": {
+            "type": "boolean"
+        },
+        "mass_message": {
+            "properties": {
+                "company_id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "content": {
+                    "maxLength": 8192,
+                    "type": "string"
+                },
+                "created": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "created_by_id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "deleted": {
+                    "description": "READ-ONLY - only present if it's an deleted object",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "modified": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "mass_message_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "modified": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "modified_by_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "user_id": {
+            "format": "uuid",
             "type": "string"
         }
     }

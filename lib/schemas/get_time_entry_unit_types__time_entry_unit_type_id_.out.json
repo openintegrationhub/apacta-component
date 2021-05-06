@@ -1,10 +1,48 @@
 {
     "type": "object",
     "properties": {
-        "time_entry_unit_type_id": {
-            "required": true,
-            "type": "string",
-            "format": "uuid"
+        "abbreviation": {
+            "maxLength": 255,
+            "type": "string"
+        },
+        "created": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "created_by_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "deleted": {
+            "description": "READ-ONLY - only present if it's an deleted object",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "description": {
+            "maxLength": 8192,
+            "type": "string"
+        },
+        "id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "identifier": {
+            "maxLength": 255,
+            "type": "string"
+        },
+        "modified": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "modified_by_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "name": {
+            "maxLength": 255,
+            "type": "string"
         }
     }
 }

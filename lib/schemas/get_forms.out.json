@@ -1,30 +1,22 @@
 {
     "type": "object",
     "properties": {
-        "extended": {
-            "type": "string",
-            "enum": [
-                true,
-                false
-            ]
+        "count": {
+            "type": "integer"
         },
-        "date_from": {
-            "type": "string",
-            "format": "Y-m-d"
-        },
-        "date_to": {
-            "type": "string",
-            "format": "Y-m-d"
-        },
-        "project_id": {
-            "type": "string",
-            "format": "uuid"
-        },
-        "created_by_id": {
-            "required": false,
+        "current_page": {
             "type": "string"
         },
-        "form_template_id": {
+        "has_next_page": {
+            "type": "boolean"
+        },
+        "has_prev_page": {
+            "type": "boolean"
+        },
+        "limit": {
+            "type": "integer"
+        },
+        "page_count": {
             "type": "string"
         }
     }

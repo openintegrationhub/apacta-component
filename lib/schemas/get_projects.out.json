@@ -1,42 +1,22 @@
 {
     "type": "object",
     "properties": {
-        "show_all": {
-            "required": false,
-            "type": "boolean",
-            "default": false
+        "count": {
+            "type": "integer"
         },
-        "contact_id": {
-            "type": "string",
-            "format": "uuid"
-        },
-        "project_status_id": {
-            "type": "string",
-            "format": "uuid"
-        },
-        "project_status_ids": {
-            "type": "array",
-            "items": {
-                "format": "uuid",
-                "type": "string"
-            }
-        },
-        "name": {
+        "current_page": {
             "type": "string"
         },
-        "erp_project_id": {
-            "type": "string"
+        "has_next_page": {
+            "type": "boolean"
         },
-        "erp_task_id": {
-            "type": "string"
+        "has_prev_page": {
+            "type": "boolean"
         },
-        "start_time_gte": {
-            "type": "string"
+        "limit": {
+            "type": "integer"
         },
-        "start_time_lte": {
-            "type": "string"
-        },
-        "start_time_eq": {
+        "page_count": {
             "type": "string"
         }
     }

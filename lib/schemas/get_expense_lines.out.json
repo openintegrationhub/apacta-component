@@ -1,17 +1,23 @@
 {
     "type": "object",
     "properties": {
-        "created_by_id": {
-            "type": "string",
-            "format": "uuid"
+        "count": {
+            "type": "integer"
         },
-        "currency_id": {
-            "type": "string",
-            "format": "uuid"
+        "current_page": {
+            "type": "string"
         },
-        "expense_id": {
-            "type": "string",
-            "format": "uuid"
+        "has_next_page": {
+            "type": "boolean"
+        },
+        "has_prev_page": {
+            "type": "boolean"
+        },
+        "limit": {
+            "type": "integer"
+        },
+        "page_count": {
+            "type": "string"
         }
     }
 }

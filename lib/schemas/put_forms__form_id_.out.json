@@ -1,9 +1,4 @@
 {
     "type": "object",
-    "properties": {
-        "form_id": {
-            "required": true,
-            "type": "string"
-        }
-    }
+    "properties": {}
 }

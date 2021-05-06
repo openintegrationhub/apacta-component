@@ -1,8 +1,59 @@
 {
     "type": "object",
     "properties": {
-        "project_id": {
-            "required": true,
+        "contact_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "created": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "created_by_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "deleted": {
+            "description": "READ-ONLY - only present if it's an deleted object",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "description": {
+            "maxLength": 8192,
+            "type": "string"
+        },
+        "erp_project_id": {
+            "maxLength": 255,
+            "type": "string"
+        },
+        "erp_task_id": {
+            "maxLength": 255,
+            "type": "string"
+        },
+        "id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "modified": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "name": {
+            "maxLength": 255,
+            "type": "string"
+        },
+        "project_status_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "start_time": {
+            "format": "datetime",
+            "type": "string"
+        },
+        "street_name": {
+            "maxLength": 255,
             "type": "string"
         }
     }

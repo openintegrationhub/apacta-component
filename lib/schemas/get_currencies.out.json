@@ -1,4 +1,23 @@
 {
     "type": "object",
-    "properties": {}
+    "properties": {
+        "count": {
+            "type": "integer"
+        },
+        "current_page": {
+            "type": "string"
+        },
+        "has_next_page": {
+            "type": "boolean"
+        },
+        "has_prev_page": {
+            "type": "boolean"
+        },
+        "limit": {
+            "type": "integer"
+        },
+        "page_count": {
+            "type": "string"
+        }
+    }
 }

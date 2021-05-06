@@ -1,9 +1,4 @@
 {
     "type": "object",
-    "properties": {
-        "material_id": {
-            "required": true,
-            "type": "string"
-        }
-    }
+    "properties": {}
 }

@@ -1,17 +1,22 @@
 {
     "type": "object",
     "properties": {
-        "name": {
+        "count": {
+            "type": "integer"
+        },
+        "current_page": {
             "type": "string"
         },
-        "identifier": {
-            "required": false,
-            "type": "string"
+        "has_next_page": {
+            "type": "boolean"
         },
-        "pdf_template_identifier": {
-            "type": "string"
+        "has_prev_page": {
+            "type": "boolean"
         },
-        "description": {
+        "limit": {
+            "type": "integer"
+        },
+        "page_count": {
             "type": "string"
         }
     }

@@ -1,12 +1,29 @@
 {
     "type": "object",
     "properties": {
-        "date_from": {
-            "required": true,
+        "form_date": {
+            "description": "Y-m-d formatted",
+            "format": "date",
             "type": "string"
         },
-        "date_to": {
-            "required": true,
+        "form_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "project_name": {
+            "type": "string"
+        },
+        "total_hours": {
+            "description": "The amount of hours in seconds",
+            "format": "int32",
+            "type": "integer"
+        },
+        "working_description": {
+            "description": "Trimmed at 50 characters",
+            "type": "string"
+        },
+        "working_description_full": {
+            "description": "Full work description (if available)",
             "type": "string"
         }
     }

@@ -1,8 +1,53 @@
 {
     "type": "object",
     "properties": {
-        "expense_line_id": {
-            "required": true,
+        "buying_price": {
+            "format": "float",
+            "type": "number"
+        },
+        "created": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "created_by_id": {
+            "description": "Read-only",
+            "format": "uuid",
+            "type": "string"
+        },
+        "currency_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "deleted": {
+            "description": "READ-ONLY - only present if it's an deleted object",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "expense_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "id": {
+            "description": "Read-only",
+            "format": "uuid",
+            "type": "string"
+        },
+        "modified": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "quantity": {
+            "format": "int32",
+            "type": "integer"
+        },
+        "selling_price": {
+            "format": "float",
+            "type": "number"
+        },
+        "text": {
+            "maxLength": 255,
             "type": "string"
         }
     }

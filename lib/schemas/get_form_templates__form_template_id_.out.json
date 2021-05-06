@@ -1,8 +1,54 @@
 {
     "type": "object",
     "properties": {
-        "form_template_id": {
-            "required": true,
+        "created": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "created_by_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "deleted": {
+            "description": "READ-ONLY - only present if it's an deleted object",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "description": {
+            "maxLength": 8192,
+            "type": "string"
+        },
+        "form_category_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "form_overview_category_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "identifier": {
+            "maxLength": 255,
+            "type": "string"
+        },
+        "is_active": {
+            "type": "boolean"
+        },
+        "modified": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "name": {
+            "maxLength": 255,
+            "type": "string"
+        },
+        "pdf_template_identifier": {
+            "maxLength": 255,
             "type": "string"
         }
     }

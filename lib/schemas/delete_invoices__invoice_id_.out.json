@@ -1,9 +1,4 @@
 {
     "type": "object",
-    "properties": {
-        "invoice_id": {
-            "required": true,
-            "type": "string"
-        }
-    }
+    "properties": {}
 }

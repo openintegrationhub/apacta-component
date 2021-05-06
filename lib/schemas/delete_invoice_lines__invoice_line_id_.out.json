@@ -1,10 +1,4 @@
 {
     "type": "object",
-    "properties": {
-        "invoice_line_id": {
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-        }
-    }
+    "properties": {}
 }

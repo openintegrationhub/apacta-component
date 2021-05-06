@@ -1,8 +1,45 @@
 {
     "type": "object",
     "properties": {
-        "project_status_id": {
-            "required": true,
+        "created": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "created_by_id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "deleted": {
+            "description": "READ-ONLY - only present if it's an deleted object",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "description": {
+            "maxLength": 8192,
+            "type": "string"
+        },
+        "id": {
+            "format": "uuid",
+            "type": "string"
+        },
+        "identifier": {
+            "description": "One of 3 values",
+            "enum": [
+                "ready_for_billing",
+                "open",
+                "closed"
+            ],
+            "maxLength": 255,
+            "type": "string"
+        },
+        "modified": {
+            "description": "READ-ONLY",
+            "format": "dateTime",
+            "type": "string"
+        },
+        "name": {
+            "maxLength": 255,
             "type": "string"
         }
     }

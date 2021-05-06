@@ -1,9 +1,4 @@
 {
     "type": "object",
-    "properties": {
-        "mass_messages_user_id": {
-            "required": true,
-            "type": "string"
-        }
-    }
+    "properties": {}
 }

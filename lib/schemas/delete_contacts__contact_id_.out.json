@@ -1,9 +1,4 @@
 {
     "type": "object",
-    "properties": {
-        "contact_id": {
-            "required": true,
-            "type": "string"
-        }
-    }
+    "properties": {}
 }

@@ -1,29 +1,23 @@
 {
     "type": "object",
     "properties": {
-        "created_by_id": {
-            "type": "string",
-            "format": "uuid"
+        "count": {
+            "type": "integer"
         },
-        "company_id": {
-            "type": "string",
-            "format": "uuid"
+        "current_page": {
+            "type": "string"
         },
-        "contact_id": {
-            "type": "string",
-            "format": "uuid"
+        "has_next_page": {
+            "type": "boolean"
         },
-        "project_id": {
-            "type": "string",
-            "format": "uuid"
+        "has_prev_page": {
+            "type": "boolean"
         },
-        "gt_created": {
-            "type": "string",
-            "format": "date"
+        "limit": {
+            "type": "integer"
         },
-        "lt_created": {
-            "type": "string",
-            "format": "date"
+        "page_count": {
+            "type": "string"
         }
     }
 }
