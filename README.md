@@ -1,1132 +1,897 @@
-# ![LOGO](logo.png) Apacta OIH Connector
+# <p align="center" width="100%"> <img src="./logo.png" width="250" height="250"> </p> 
+# <p align="center" width="100%"> Apacta OIH Connector </p>
 
 ## Description
-
-[![Generic badge](https://img.shields.io/badge/Status-NotTested!-lightgrey.svg)](https://shields.io/)
 
 A generated OIH connector for the Apacta API (version 0.0.1).
 
 Generated from: https://api.apis.guru/v2/specs/apacta.com/0.0.1/swagger.json<br/>
-Generated at: 2021-04-26T15:21:35+02:00
+Generated at: 2021-05-31T11:11:07+02:00
 
 ## API Description
 
-API for a tool to craftsmen used to register working hours, material usage and quality assurance. <br/>
-
+API for a tool to craftsmen used to register working hours, material usage and quality assurance.    <br/>
 # Endpoint<br/>
-
 The endpoint `https://app.apacta.com/api/v1` should be used to communicate with the API. API access is only allowed with SSL encrypted connection (https).<br/>
-
 # Authentication<br/>
-
 URL query authentication with an API key is used, so appending `?api_key={api_key}` to the URL where `{api_key}` is found within Apacta settings is used for authentication<br/>
+# Pagination<br/>
+If the endpoint returns a `pagination` object it means the endpoint supports pagination - currently it's only possible to change pages with `?page={page_number}` but implementing custom page sizes are on the road map.<br/>
+<br/>
+<br/>
+# Search/filter<br/>
+Is experimental but implemented in some cases - see the individual endpoints' docs for further explanation.<br/>
+# Ordering<br/>
+Is currently experimental, but on some endpoints it's implemented on URL querys so eg. to order Invoices by `invoice_number` appending `?sort=Invoices.invoice_number&direction=desc` would sort the list descending by the value of `invoice_number`.<br/>
+# Associations<br/>
+Is currently implemented on an experimental basis where you can append eg. `?include=Contacts,Projects`  to the `/api/v1/invoices/` endpoint to embed `Contact` and `Project` objects directly.<br/>
+# Project Files<br/>
+Currently project files can be retrieved from two endpoints. `/projects/{project_id}/files` handles files uploaded from wall posts or forms. `/projects/{project_id}/project_files` allows uploading and showing files, not belonging to specific form or wall post.<br/>
+# Errors/Exceptions<br/>
+## 422 (Validation)<br/>
+Write something about how the `errors` object contains keys with the properties that failes validation like:<br/>
+```<br/>
+  {<br/>
+      "success": false,<br/>
+      "data": {<br/>
+          "code": 422,<br/>
+          "url": "/api/v1/contacts?api_key=5523be3b-30ef-425d-8203-04df7caaa93a",<br/>
+          "message": "A validation error occurred",<br/>
+          "errorCount": 1,<br/>
+          "errors": {<br/>
+              "contact_types": [ ## Property name that failed validation<br/>
+                  "Contacts must have at least one contact type" ## Message with further explanation<br/>
+              ]<br/>
+          }<br/>
+      }<br/>
+  }<br/>
+```<br/>
+## Code examples<br/>
+Running examples of how to retrieve the 5 most recent forms registered and embed the details of the User that made the form, and eventual products contained in the form<br/>
+### Swift<br/>
+```<br/>
+  <br/>
+```<br/>
+### Java<br/>
+#### OkHttp<br/>
+```<br/>
+  OkHttpClient client = new OkHttpClient();<br/>
+  <br/>
+  Request request = new Request.Builder()<br/>
+    .url("https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5")<br/>
+    .get()<br/>
+    .addHeader("x-auth-token", "{INSERT_YOUR_TOKEN}")<br/>
+    .addHeader("accept", "application/json")<br/>
+    .build();<br/>
+  <br/>
+  Response response = client.newCall(request).execute();<br/>
+```<br/>
+#### Unirest<br/>
+```<br/>
+  HttpResponse<String> response = Unirest.get("https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5")<br/>
+    .header("x-auth-token", "{INSERT_YOUR_TOKEN}")<br/>
+    .header("accept", "application/json")<br/>
+    .asString();<br/>
+```<br/>
+### Javascript<br/>
+#### Native<br/>
+```<br/>
+  var data = null;<br/>
+  <br/>
+  var xhr = new XMLHttpRequest();<br/>
+  xhr.withCredentials = true;<br/>
+  <br/>
+  xhr.addEventListener("readystatechange", function () {<br/>
+    if (this.readyState === 4) {<br/>
+      console.log(this.responseText);<br/>
+    }<br/>
+  });<br/>
+  <br/>
+  xhr.open("GET", "https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5");<br/>
+  xhr.setRequestHeader("x-auth-token", "{INSERT_YOUR_TOKEN}");<br/>
+  xhr.setRequestHeader("accept", "application/json");<br/>
+  <br/>
+  xhr.send(data);<br/>
+```<br/>
+#### jQuery<br/>
+```<br/>
+  var settings = {<br/>
+    "async": true,<br/>
+    "crossDomain": true,<br/>
+    "url": "https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5",<br/>
+    "method": "GET",<br/>
+    "headers": {<br/>
+      "x-auth-token": "{INSERT_YOUR_TOKEN}",<br/>
+      "accept": "application/json",<br/>
+    }<br/>
+  }<br/>
+  <br/>
+  $.ajax(settings).done(function (response) {<br/>
+    console.log(response);<br/>
+  });<br/>
+```<br/>
+#### NodeJS (Request)<br/>
+```<br/>
+  var request = require("request");<br/>
+<br/>
+  var options = { method: 'GET',<br/>
+    url: 'https://app.apacta.com/api/v1/forms',<br/>
+    qs: <br/>
+     { extended: 'true',<br/>
+       sort: 'Forms.created',<br/>
+       direction: 'DESC',<br/>
+       include: 'Products,CreatedBy',<br/>
+       limit: '5' },<br/>
+    headers: <br/>
+     { accept: 'application/json',<br/>
+       'x-auth-token': '{INSERT_YOUR_TOKEN}' } };<br/>
+  <br/>
+  request(options, function (error, response, body) {<br/>
+    if (error) throw new Error(error);<br/>
+  <br/>
+    console.log(body);<br/>
+  });<br/>
+<br/>
+```<br/>
+### Python 3<br/>
+```<br/>
+  import http.client<br/>
+  <br/>
+  conn = http.client.HTTPSConnection("app.apacta.com")<br/>
+  <br/>
+  payload = ""<br/>
+  <br/>
+  headers = {<br/>
+      'x-auth-token': "{INSERT_YOUR_TOKEN}",<br/>
+      'accept': "application/json",<br/>
+      }<br/>
+  <br/>
+  conn.request("GET", "/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5", payload, headers)<br/>
+  <br/>
+  res = conn.getresponse()<br/>
+  data = res.read()<br/>
+  <br/>
+  print(data.decode("utf-8"))<br/>
+```<br/>
+### C#<br/>
+#### RestSharp<br/>
+```<br/>
+  var client = new RestClient("https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5");<br/>
+  var request = new RestRequest(Method.GET);<br/>
+  request.AddHeader("accept", "application/json");<br/>
+  request.AddHeader("x-auth-token", "{INSERT_YOUR_TOKEN}");<br/>
+  IRestResponse response = client.Execute(request);    <br/>
+```<br/>
+### Ruby<br/>
+```<br/>
+  require 'uri'<br/>
+  require 'net/http'<br/>
+  <br/>
+  url = URI("https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5")<br/>
+  <br/>
+  http = Net::HTTP.new(url.host, url.port)<br/>
+  http.use_ssl = true<br/>
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE<br/>
+  <br/>
+  request = Net::HTTP::Get.new(url)<br/>
+  request["x-auth-token"] = '{INSERT_YOUR_TOKEN}'<br/>
+  request["accept"] = 'application/json'<br/>
+  <br/>
+  response = http.request(request)<br/>
+  puts response.read_body<br/>
+```<br/>
+### PHP (HttpRequest)<br/>
+```<br/>
+  <?php<br/>
+<br/>
+  $request = new HttpRequest();<br/>
+  $request->setUrl('https://app.apacta.com/api/v1/forms');<br/>
+  $request->setMethod(HTTP_METH_GET);<br/>
+  <br/>
+  $request->setQueryData(array(<br/>
+    'extended' => 'true',<br/>
+    'sort' => 'Forms.created',<br/>
+    'direction' => 'DESC',<br/>
+    'include' => 'Products,CreatedBy',<br/>
+    'limit' => '5'<br/>
+  ));<br/>
+  <br/>
+  $request->setHeaders(array(<br/>
+    'accept' => 'application/json',<br/>
+    'x-auth-token' => '{INSERT_YOUR_TOKEN}'<br/>
+  ));<br/>
+  <br/>
+  try {<br/>
+    $response = $request->send();<br/>
+  <br/>
+    echo $response->getBody();<br/>
+  } catch (HttpException $ex) {<br/>
+    echo $ex;<br/>
+  }<br/>
+```<br/>
+### Shell (cURL)<br/>
+```<br/>
+<br/>
+  $ curl --request GET --url 'https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5' --header 'accept: application/json' --header 'x-auth-token: {INSERT_YOUR_TOKEN}'<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+  <br/>
+```<br/>
 
 ## Authorization
 
 Supported authorization schemes:
-
 - API Key
 
 - API Key
-- Uses the user's API token found from within the control panel in "settings" -> "additional settings"
+ - Uses the user's API token found from within the control panel in "settings" -> "additional settings"
 
 ## Actions
 
-### Get list of cities supported in Apacta
-
-_Tags:_ `Cities`
-
-#### Input Parameters
-
-- `zip_code` - _optional_ - Used to search for a city with specific zip code<br/>
-
 ### Get details about one city
 
-_Tags:_ `Cities`
+*Tags:* `Cities`
 
 #### Input Parameters
-
-- `city_id` - _required_
-
-### Get a list of clocking records
-
-_Tags:_ `ClockingRecords`
-
-#### Input Parameters
-
-- `active` - _optional_ - Used to search for active clocking records<br/>
+* `city_id` - _required_
 
 ### Create clocking record for authenticated user
 
-_Tags:_ `ClockingRecords`
+*Tags:* `ClockingRecords`
 
 ### Checkout active clocking record for authenticated user
 
-_Tags:_ `ClockingRecords`
+*Tags:* `ClockingRecords`
 
 ### Delete a clocking record
 
-_Tags:_ `ClockingRecords`
+*Tags:* `ClockingRecords`
 
 #### Input Parameters
-
-- `clocking_record_id` - _required_
+* `clocking_record_id` - _required_
 
 ### Details of 1 clocking_record
 
-_Tags:_ `ClockingRecords`
+*Tags:* `ClockingRecords`
 
 #### Input Parameters
-
-- `clocking_record_id` - _required_
+* `clocking_record_id` - _required_
 
 ### Edit a clocking record
 
-_Tags:_ `ClockingRecords`
+*Tags:* `ClockingRecords`
 
 #### Input Parameters
-
-- `clocking_record_id` - _required_
-
-### Get a list of companies
-
-_Tags:_ `Companies`
+* `clocking_record_id` - _required_
 
 ### Details of 1 company
 
-_Tags:_ `Companies`
+*Tags:* `Companies`
 
 #### Input Parameters
-
-- `company_id` - _required_
-
-### Get a list of integration feature settings
-
-_Tags:_ `Companies`
-
-#### Input Parameters
-
-- `company_id` - _required_
+* `company_id` - _required_
 
 ### Show details of 1 integration feature setting
 
-_Tags:_ `Companies`
+*Tags:* `Companies`
 
 #### Input Parameters
-
-- `company_id` - _required_
-- `integration_feature_setting_id` - _required_
-
-### Get list of contact types supported in Apacta
-
-_Tags:_ `ContactTypes`
-
-#### Input Parameters
-
-- `identifier` - _optional_ - Search for specific identifier value<br/>
+* `company_id` - _required_
+* `integration_feature_setting_id` - _required_
 
 ### Get details about one contact type
 
-_Tags:_ `ContactTypes`
+*Tags:* `ContactTypes`
 
 #### Input Parameters
-
-- `contact_type_id` - _required_
-
-### Get a list of contacts
-
-_Tags:_ `Contacts`
-
-#### Input Parameters
-
-- `name` - _optional_ - Used to search for a contact with a specific name<br/>
-- `cvr` - _optional_ - Search for values in CVR field<br/>
-- `ean` - _optional_ - Search for values in EAN field<br/>
-- `erp_id` - _optional_ - Search for values in ERP id field<br/>
-- `contact_type` - _optional_ - Used to show only contacts with with one specific `ContactType`<br/>
-- `city` - _optional_ - Used to show only contacts with with one specific `City`<br/>
+* `contact_type_id` - _required_
 
 ### Add a new contact
 
-_Tags:_ `Contacts`
+*Tags:* `Contacts`
 
 ### Delete a contact
 
-_Tags:_ `Contacts`
+*Tags:* `Contacts`
 
 #### Input Parameters
-
-- `contact_id` - _required_
+* `contact_id` - _required_
 
 ### Details of 1 contact
 
-_Tags:_ `Contacts`
+*Tags:* `Contacts`
 
 #### Input Parameters
-
-- `contact_id` - _required_
+* `contact_id` - _required_
 
 ### Edit a contact
 
-_Tags:_ `Contacts`
+*Tags:* `Contacts`
 
 #### Input Parameters
-
-- `contact_id` - _required_
-
-### Get list of currencies supported in Apacta
-
-_Tags:_ `Currencies`
+* `contact_id` - _required_
 
 ### Get details about one currency
 
-_Tags:_ `Currencies`
+*Tags:* `Currencies`
 
 #### Input Parameters
-
-- `currency_id` - _required_
-
-### Used to retrieve details about the logged in user's hours
-
-_Tags:_ `EmployeeHours`
-
-#### Input Parameters
-
-- `date_from` - _required_ - Date formatted as Y-m-d (2016-06-28)<br/>
-- `date_to` - _required_ - Date formatted as Y-m-d (2016-06-28)<br/>
-
-### Show list of expense files
-
-_Tags:_ `ExpenseFiles`
-
-#### Input Parameters
-
-- `created_by_id` - _optional_
-- `expense_id` - _optional_
+* `currency_id` - _required_
 
 ### Add file to expense
 
-_Tags:_ `ExpenseFiles`
+*Tags:* `ExpenseFiles`
 
 ### Delete file
 
-_Tags:_ `ExpenseFiles`
+*Tags:* `ExpenseFiles`
 
 #### Input Parameters
-
-- `expense_file_id` - _required_
+* `expense_file_id` - _required_
 
 ### Show file
 
-_Tags:_ `ExpenseFiles`
+*Tags:* `ExpenseFiles`
 
 #### Input Parameters
-
-- `expense_file_id` - _required_
+* `expense_file_id` - _required_
 
 ### Edit file
 
-_Tags:_ `ExpenseFiles`
+*Tags:* `ExpenseFiles`
 
 #### Input Parameters
-
-- `expense_file_id` - _required_
-
-### Show list of expense lines
-
-_Tags:_ `ExpenseLines`
-
-#### Input Parameters
-
-- `created_by_id` - _optional_
-- `currency_id` - _optional_
-- `expense_id` - _optional_
+* `expense_file_id` - _required_
 
 ### Add line to expense
 
-_Tags:_ `ExpenseLines`
+*Tags:* `ExpenseLines`
 
 ### Delete expense line
 
-_Tags:_ `ExpenseLines`
+*Tags:* `ExpenseLines`
 
 #### Input Parameters
-
-- `expense_line_id` - _required_
+* `expense_line_id` - _required_
 
 ### Show expense line
 
-_Tags:_ `ExpenseLines`
+*Tags:* `ExpenseLines`
 
 #### Input Parameters
-
-- `expense_line_id` - _required_
+* `expense_line_id` - _required_
 
 ### Edit expense line
 
-_Tags:_ `ExpenseLines`
+*Tags:* `ExpenseLines`
 
 #### Input Parameters
-
-- `expense_line_id` - _required_
-
-### Show list of expenses
-
-_Tags:_ `Expenses`
-
-#### Input Parameters
-
-- `created_by_id` - _optional_
-- `company_id` - _optional_
-- `contact_id` - _optional_
-- `project_id` - _optional_
-- `gt_created` - _optional_ - Created after date<br/>
-- `lt_created` - _optional_ - Created before date<br/>
+* `expense_line_id` - _required_
 
 ### Add line to expense
 
-_Tags:_ `Expenses`
+*Tags:* `Expenses`
 
 ### Delete expense
 
-_Tags:_ `Expenses`
+*Tags:* `Expenses`
 
 #### Input Parameters
-
-- `expense_id` - _required_
+* `expense_id` - _required_
 
 ### Show expense
 
-_Tags:_ `Expenses`
+*Tags:* `Expenses`
 
 #### Input Parameters
-
-- `expense_id` - _required_
+* `expense_id` - _required_
 
 ### Edit expense
 
-_Tags:_ `Expenses`
+*Tags:* `Expenses`
 
 #### Input Parameters
-
-- `expense_id` - _required_
-
-### Show list of all OIOUBL files for the expense
-
-_Tags:_ `Expense OIOUBL files`
-
-#### Input Parameters
-
-- `expense_id` - _required_
+* `expense_id` - _required_
 
 ### Show OIOUBL file
 
-_Tags:_ `Expense OIOUBL files`
+*Tags:* `Expense OIOUBL files`
 
 #### Input Parameters
-
-- `expense_id` - _required_
-- `file_id` - _required_
-
-### Get list of form field types
-
-_Tags:_ `FormFieldTypes`
-
-#### Input Parameters
-
-- `name` - _optional_ - Used to filter on the `name` of the form_fields<br/>
-- `identifier` - _optional_ - Used to filter on the `identifier` of the form_fields<br/>
+* `expense_id` - _required_
+* `file_id` - _required_
 
 ### Get details about single `FormField`
 
-_Tags:_ `FormFieldTypes`
+*Tags:* `FormFieldTypes`
 
 #### Input Parameters
-
-- `form_field_type_id` - _required_
+* `form_field_type_id` - _required_
 
 ### Add a new field to a `Form`
 
-_Tags:_ `FormFields`
+*Tags:* `FormFields`
 
 ### Get details about single `FormField`
 
-_Tags:_ `FormFields`
+*Tags:* `FormFields`
 
 #### Input Parameters
-
-- `form_field_id` - _required_
-
-### Get array of form_templates for your company
-
-_Tags:_ `FormTemplates`
-
-#### Input Parameters
-
-- `name` - _optional_ - Used to filter on the `name` of the form_templates<br/>
-- `identifier` - _optional_ - Used to filter on the `identifier` of the form_templates<br/>
-- `pdf_template_identifier` - _optional_ - Used to filter on the `pdf_template_identifier` of the form_templates<br/>
-- `description` - _optional_ - Used to filter on the `description` of the form_templates<br/>
+* `form_field_id` - _required_
 
 ### View one form template
 
-_Tags:_ `FormTemplates`
+*Tags:* `FormTemplates`
 
 #### Input Parameters
-
-- `form_template_id` - _required_
-
-### Retrieve array of forms
-
-_Tags:_ `Forms`
-
-#### Input Parameters
-
-- `extended` - _optional_ - Used to have extended details from the forms from the `Form`'s `FormFields`<br/>
-  Possible values: true, false.
-- `date_from` - _optional_ - Used in conjunction with `date_to` to only show forms within these dates - format like `2016-28-05`<br/>
-- `date_to` - _optional_ - Used in conjunction with `date_from` to only show forms within these dates - format like `2016-28-30`<br/>
-- `project_id` - _optional_ - Used to filter on the `project_id` of the forms<br/>
-- `created_by_id` - _optional_ - Used to filter on the `created_by_id` of the forms<br/>
-- `form_template_id` - _optional_ - Used to filter on the `form_template_id` of the forms<br/>
+* `form_template_id` - _required_
 
 ### Add new form
-
 > Used to add a form into the system<br/>
 
-_Tags:_ `Forms`
+*Tags:* `Forms`
 
 ### Delete a form
-
 > You can only delete the forms that you've submitted yourself<br/>
 
-_Tags:_ `Forms`
+*Tags:* `Forms`
 
 #### Input Parameters
-
-- `form_id` - _required_
+* `form_id` - _required_
 
 ### View form
 
-_Tags:_ `Forms`
+*Tags:* `Forms`
 
 #### Input Parameters
-
-- `form_id` - _required_
+* `form_id` - _required_
 
 ### Edit a form
 
-_Tags:_ `Forms`
+*Tags:* `Forms`
 
 #### Input Parameters
-
-- `form_id` - _required_
-
-### View list of invoice lines
-
-_Tags:_ `InvoiceLines`
-
-#### Input Parameters
-
-- `invoice_id` - _optional_
-- `product_id` - _optional_
-- `user_id` - _optional_
-- `name` - _optional_
-- `discount_text` - _optional_
+* `form_id` - _required_
 
 ### Add invoice
 
-_Tags:_ `InvoiceLines`
+*Tags:* `InvoiceLines`
 
 ### Delete invoice line
 
-_Tags:_ `InvoiceLines`
+*Tags:* `InvoiceLines`
 
 #### Input Parameters
-
-- `invoice_line_id` - _required_
+* `invoice_line_id` - _required_
 
 ### View invoice line
 
-_Tags:_ `InvoiceLines`
+*Tags:* `InvoiceLines`
 
 #### Input Parameters
-
-- `invoice_line_id` - _required_
+* `invoice_line_id` - _required_
 
 ### Edit invoice line
 
-_Tags:_ `InvoiceLines`
+*Tags:* `InvoiceLines`
 
 #### Input Parameters
-
-- `invoice_line_id` - _required_
-
-### View list of invoices
-
-_Tags:_ `Invoices`
-
-#### Input Parameters
-
-- `contact_id` - _optional_ - Used to filter on the `contact_id` of the invoices<br/>
-- `project_id` - _optional_ - Used to filter on the `project_id` of the invoices<br/>
-- `invoice_number` - _optional_ - Used to filter on the `invoice_number` of the invoices<br/>
-- `offer_number` - _optional_
-- `is_draft` - _optional_
-  Possible values: 0, 1.
-- `is_offer` - _optional_
-  Possible values: 0, 1.
-- `is_locked` - _optional_
-  Possible values: 0, 1.
-- `date_from` - _optional_
-- `date_to` - _optional_
-- `issued_date` - _optional_
+* `invoice_line_id` - _required_
 
 ### Add invoice
 
-_Tags:_ `Invoices`
+*Tags:* `Invoices`
 
 ### Delete invoice
 
-_Tags:_ `Invoices`
+*Tags:* `Invoices`
 
 #### Input Parameters
-
-- `invoice_id` - _required_
+* `invoice_id` - _required_
 
 ### View invoice
 
-_Tags:_ `Invoices`
+*Tags:* `Invoices`
 
 #### Input Parameters
-
-- `invoice_id` - _required_
+* `invoice_id` - _required_
 
 ### Edit invoice
 
-_Tags:_ `Invoices`
+*Tags:* `Invoices`
 
 #### Input Parameters
-
-- `invoice_id` - _required_
-
-### View list of mass messages for specific user
-
-_Tags:_ `MassMessagesUsers`
-
-#### Input Parameters
-
-- `is_read` - _optional_ - Used to filter on the `is_read` of the mass messages<br/>
+* `invoice_id` - _required_
 
 ### View mass message
 
-_Tags:_ `MassMessagesUsers`
+*Tags:* `MassMessagesUsers`
 
 #### Input Parameters
-
-- `mass_messages_user_id` - _required_
+* `mass_messages_user_id` - _required_
 
 ### Edit mass message
 
-_Tags:_ `MassMessagesUsers`
+*Tags:* `MassMessagesUsers`
 
 #### Input Parameters
-
-- `mass_messages_user_id` - _required_
-
-### View list of all materials
-
-_Tags:_ `Materials`
-
-#### Input Parameters
-
-- `barcode` - _optional_ - Used to filter on the `barcode` of the materials<br/>
-- `name` - _optional_ - Used to filter on the `name` of the materials<br/>
-- `project_id` - _optional_ - Used to find materials used in specific project by `project_id`<br/>
-- `currently_rented` - _optional_ - Used to find currently rented materials<br/>
+* `mass_messages_user_id` - _required_
 
 ### Delete material
 
-_Tags:_ `Materials`
+*Tags:* `Materials`
 
 #### Input Parameters
-
-- `material_id` - _required_
+* `material_id` - _required_
 
 ### View material
 
-_Tags:_ `Materials`
+*Tags:* `Materials`
 
 #### Input Parameters
-
-- `material_id` - _required_
+* `material_id` - _required_
 
 ### Edit material
 
-_Tags:_ `Materials`
+*Tags:* `Materials`
 
 #### Input Parameters
-
-- `material_id` - _required_
-
-### Show list of rentals for specific material
-
-_Tags:_ `MaterialRentals`
-
-#### Input Parameters
-
-- `material_id` - _required_
+* `material_id` - _required_
 
 ### Add material rental
 
-_Tags:_ `MaterialRentals`
+*Tags:* `MaterialRentals`
 
 #### Input Parameters
-
-- `material_id` - _required_
+* `material_id` - _required_
 
 ### Checkout material rental
 
-_Tags:_ `MaterialRentals`
+*Tags:* `MaterialRentals`
 
 #### Input Parameters
-
-- `material_id` - _required_
+* `material_id` - _required_
 
 ### Delete material rental
-
 > Delete rental for material<br/>
 
-_Tags:_ `MaterialRentals`
+*Tags:* `MaterialRentals`
 
 #### Input Parameters
-
-- `material_id` - _required_
-- `material_rental_id` - _required_
-
-### Show rental foor materi
-
-_Tags:_ `MaterialRentals`
-
-#### Input Parameters
-
-- `material_id` - _required_
-- `material_rental_id` - _required_
+* `material_id` - _required_
+* `material_rental_id` - _required_
 
 ### Add material
 
-_Tags:_ `Materials`
+*Tags:* `Materials`
 
 #### Input Parameters
-
-- `material_id` - _required_
-- `material_rental_id` - _required_
+* `material_id` - _required_
+* `material_rental_id` - _required_
 
 ### Edit material rental
 
-_Tags:_ `MaterialRentals`
+*Tags:* `MaterialRentals`
 
 #### Input Parameters
-
-- `material_id` - _required_
-- `material_rental_id` - _required_
-
-### Get a list of payment term types
-
-_Tags:_ `PaymentTermTypes`
+* `material_id` - _required_
+* `material_rental_id` - _required_
 
 ### Details of 1 payment term type
 
-_Tags:_ `PaymentTermTypes`
+*Tags:* `PaymentTermTypes`
 
 #### Input Parameters
-
-- `payment_term_type_id` - _required_
-
-### Get a list of payment terms
-
-_Tags:_ `PaymentTerms`
+* `payment_term_type_id` - _required_
 
 ### Details of 1 payment term
 
-_Tags:_ `PaymentTerms`
+*Tags:* `PaymentTerms`
 
 #### Input Parameters
-
-- `payment_term_id` - _required_
-
-### Check if API is up and API key works
-
-_Tags:_ `Ping`
-
-### List products
-
-_Tags:_ `Products`
-
-#### Input Parameters
-
-- `name` - _optional_ - Used to filter on the `name` of the products<br/>
-- `product_number` - _optional_ - Used to filter on the `product_number` of the products<br/>
-- `barcode` - _optional_ - Used to filter on the `barcode` of the products<br/>
+* `payment_term_id` - _required_
 
 ### Add new product
 
-_Tags:_ `Products`
+*Tags:* `Products`
 
 ### Delete a product
 
-_Tags:_ `Products`
+*Tags:* `Products`
 
 #### Input Parameters
-
-- `product_id` - _required_
+* `product_id` - _required_
 
 ### View single product
 
-_Tags:_ `Products`
+*Tags:* `Products`
 
 #### Input Parameters
-
-- `product_id` - _required_
+* `product_id` - _required_
 
 ### Edit a product
 
-_Tags:_ `Products`
+*Tags:* `Products`
 
 #### Input Parameters
-
-- `product_id` - _required_
-
-### Get list of project statuses
-
-_Tags:_ `ProjectStatuses`
+* `product_id` - _required_
 
 ### Get details about one contact type
 
-_Tags:_ `ProjectStatuses`
+*Tags:* `ProjectStatuses`
 
 #### Input Parameters
-
-- `project_status_id` - _required_
-
-### View list of projects
-
-_Tags:_ `Projects`
-
-#### Input Parameters
-
-- `show_all` - _optional_ - Unless this is set to `true` only open projects will be shown<br/>
-- `contact_id` - _optional_ - Used to filter on the `contact_id` of the projects<br/>
-- `project_status_id` - _optional_ - Used to filter on the `project_status_id` of the projects<br/>
-- `project_status_ids` - _optional_ - Used to filter on the `project_status_id` of the projects (match any of the provided values)<br/>
-- `name` - _optional_ - Used to search on the `name` of the projects<br/>
-- `erp_project_id` - _optional_ - Used to search on the `erp_project_id` of the projects<br/>
-- `erp_task_id` - _optional_ - Used to search on the `erp_task_id` of the projects<br/>
-- `start_time_gte` - _optional_ - Show projects with start time after than this value<br/>
-- `start_time_lte` - _optional_ - Show projects with start time before this value<br/>
-- `start_time_eq` - _optional_ - Show only projects with start time on specific date<br/>
+* `project_status_id` - _required_
 
 ### Add a project
 
-_Tags:_ `Projects`
+*Tags:* `Projects`
 
 ### Delete a project
 
-_Tags:_ `Projects`
+*Tags:* `Projects`
 
 #### Input Parameters
-
-- `project_id` - _required_
+* `project_id` - _required_
 
 ### View specific project
 
-_Tags:_ `Projects`
+*Tags:* `Projects`
 
 #### Input Parameters
-
-- `project_id` - _required_
+* `project_id` - _required_
 
 ### Edit a project
 
-_Tags:_ `Projects`
+*Tags:* `Projects`
 
 #### Input Parameters
-
-- `project_id` - _required_
-
-### Show list of files uploaded to project
-
-> Used to show files uploaded to a project from wall post or form<br/>
-
-_Tags:_ `Projects`
-
-#### Input Parameters
-
-- `project_id` - _required_
+* `project_id` - _required_
 
 ### Delete file
-
 > Delete file uploaded to a project from wall post or form<br/>
 
-_Tags:_ `Projects`
+*Tags:* `Projects`
 
 #### Input Parameters
-
-- `project_id` - _required_
-- `file_id` - _required_
-
-### Show file
-
-> Show file uploaded to a project from wall post or form<br/>
-
-_Tags:_ `Projects`
-
-#### Input Parameters
-
-- `project_id` - _required_
-- `file_id` - _required_
+* `project_id` - _required_
+* `file_id` - _required_
 
 ### Edit file
-
 > Edit file uploaded to a project from wall post or form<br/>
 
-_Tags:_ `Projects`
+*Tags:* `Projects`
 
 #### Input Parameters
-
-- `project_id` - _required_
-- `file_id` - _required_
-
-### Show list of project files uploaded to project
-
-> Returns files belonging to the project, not uploaded from wall post or form<br/>
-
-_Tags:_ `Projects`
-
-#### Input Parameters
-
-- `project_id` - _required_
+* `project_id` - _required_
+* `file_id` - _required_
 
 ### Add project file to projects
 
-_Tags:_ `Projects`
+*Tags:* `Projects`
 
 #### Input Parameters
-
-- `project_id` - _required_
+* `project_id` - _required_
 
 ### Delete project file
 
-_Tags:_ `Projects`
+*Tags:* `Projects`
 
 #### Input Parameters
-
-- `project_file_id` - _required_
-- `project_id` - _required_
-
-### Show project file
-
-_Tags:_ `Projects`
-
-#### Input Parameters
-
-- `project_id` - _required_
-- `project_file_id` - _required_
+* `project_file_id` - _required_
+* `project_id` - _required_
 
 ### Edit project file
 
-_Tags:_ `Projects`
+*Tags:* `Projects`
 
 #### Input Parameters
-
-- `project_id` - _required_
-- `project_file_id` - _required_
-
-### Show list of users added to project
-
-_Tags:_ `Projects`
-
-#### Input Parameters
-
-- `project_id` - _required_
+* `project_id` - _required_
+* `project_file_id` - _required_
 
 ### Add user to project
 
-_Tags:_ `Projects`
+*Tags:* `Projects`
 
 #### Input Parameters
-
-- `project_id` - _required_
+* `project_id` - _required_
 
 ### Delete user from project
 
-_Tags:_ `Projects`
+*Tags:* `Projects`
 
 #### Input Parameters
-
-- `user_id` - _required_
-- `project_id` - _required_
+* `user_id` - _required_
+* `project_id` - _required_
 
 ### View specific user assigned to project
 
-_Tags:_ `Projects`
+*Tags:* `Projects`
 
 #### Input Parameters
-
-- `user_id` - _required_
-- `project_id` - _required_
-
-### List stock_locations
-
-_Tags:_ `StockLocations`
-
-#### Input Parameters
-
-- `name` - _optional_ - Used to filter on the `name` of the stock_locations<br/>
+* `user_id` - _required_
+* `project_id` - _required_
 
 ### Add new stock_locations
 
-_Tags:_ `StockLocations`
+*Tags:* `StockLocations`
 
 ### Delete location
 
-_Tags:_ `StockLocations`
+*Tags:* `StockLocations`
 
 #### Input Parameters
-
-- `location_id` - _required_
+* `location_id` - _required_
 
 ### View single location
 
-_Tags:_ `StockLocations`
+*Tags:* `StockLocations`
 
 #### Input Parameters
-
-- `location_id` - _required_
+* `location_id` - _required_
 
 ### Edit location
 
-_Tags:_ `StockLocations`
+*Tags:* `StockLocations`
 
 #### Input Parameters
-
-- `location_id` - _required_
-
-### List time entries
-
-_Tags:_ `TimeEntries`
-
-#### Input Parameters
-
-- `user_id` - _optional_
-- `form_id` - _optional_
-- `project_id` - _optional_
-- `gt_from_time` - _optional_
-- `lt_from_time` - _optional_
-- `gt_to_time` - _optional_
-- `lt_to_time` - _optional_
-- `lt_sum` - _optional_
-- `gt_sum` - _optional_
+* `location_id` - _required_
 
 ### Add new time entry
 
-_Tags:_ `TimeEntries`
+*Tags:* `TimeEntries`
 
 ### Delete time entry
 
-_Tags:_ `TimeEntries`
+*Tags:* `TimeEntries`
 
 #### Input Parameters
-
-- `time_entry_id` - _required_
+* `time_entry_id` - _required_
 
 ### View time entry
 
-_Tags:_ `TimeEntries`
+*Tags:* `TimeEntries`
 
 #### Input Parameters
-
-- `time_entry_id` - _required_
+* `time_entry_id` - _required_
 
 ### Edit time entry
 
-_Tags:_ `TimeEntries`
+*Tags:* `TimeEntries`
 
 #### Input Parameters
-
-- `time_entry_id` - _required_
-
-### List possible time entry intervals
-
-_Tags:_ `TimeEntryIntervals`
+* `time_entry_id` - _required_
 
 ### View time entry interval
 
-_Tags:_ `TimeEntryIntervals`
+*Tags:* `TimeEntryIntervals`
 
 #### Input Parameters
-
-- `time_entry_interval_id` - _required_
-
-### List time entries types
-
-_Tags:_ `TimeEntryTypes`
+* `time_entry_interval_id` - _required_
 
 ### Add new time entry type
 
-_Tags:_ `TimeEntryTypes`
+*Tags:* `TimeEntryTypes`
 
 ### Delete time entry type
 
-_Tags:_ `TimeEntryTypes`
+*Tags:* `TimeEntryTypes`
 
 #### Input Parameters
-
-- `time_entry_type_id` - _required_
+* `time_entry_type_id` - _required_
 
 ### View time entry type
 
-_Tags:_ `TimeEntryTypes`
+*Tags:* `TimeEntryTypes`
 
 #### Input Parameters
-
-- `time_entry_type_id` - _required_
+* `time_entry_type_id` - _required_
 
 ### Edit time entry type
 
-_Tags:_ `TimeEntryTypes`
+*Tags:* `TimeEntryTypes`
 
 #### Input Parameters
-
-- `time_entry_type_id` - _required_
-
-### List possible time entry unit types
-
-_Tags:_ `TimeEntryUnitTypes`
+* `time_entry_type_id` - _required_
 
 ### View time entry unit type
 
-_Tags:_ `TimeEntryUnitTypes`
+*Tags:* `TimeEntryUnitTypes`
 
 #### Input Parameters
-
-- `time_entry_unit_type_id` - _required_
-
-### List possible time entry value types
-
-_Tags:_ `TimeEntryValueTypes`
+* `time_entry_unit_type_id` - _required_
 
 ### View time entry value type
 
-_Tags:_ `TimeEntryValueTypes`
+*Tags:* `TimeEntryValueTypes`
 
 #### Input Parameters
-
-- `time_entry_value_type_id` - _required_
-
-### Get list of users in company
-
-_Tags:_ `Users`
-
-#### Input Parameters
-
-- `first_name` - _optional_ - Used to filter on the `first_name` of the users<br/>
-- `last_name` - _optional_ - Used to filter on the `last_name` of the users<br/>
-- `email` - _optional_ - Used to filter on the `email` of the users<br/>
-- `stock_location_id` - _optional_ - Used to filter on the `stock_location_id` of the users<br/>
+* `time_entry_value_type_id` - _required_
 
 ### Add user to company
 
-_Tags:_ `Users`
+*Tags:* `Users`
 
 ### Delete user
 
-_Tags:_ `Users`
+*Tags:* `Users`
 
 #### Input Parameters
-
-- `user_id` - _required_
+* `user_id` - _required_
 
 ### View user
 
-_Tags:_ `Users`
+*Tags:* `Users`
 
 #### Input Parameters
-
-- `user_id` - _required_
+* `user_id` - _required_
 
 ### Edit user
 
-_Tags:_ `Users`
+*Tags:* `Users`
 
 #### Input Parameters
-
-- `user_id` - _required_
-
-### List vendor products
-
-_Tags:_ `VendorProducts`
-
-#### Input Parameters
-
-- `name` - _optional_ - Used to filter on the `name` of the vendor products<br/>
-- `product_number` - _optional_ - Used to filter on the `product_number` of the vendor products<br/>
-- `barcode` - _optional_ - Used to filter on the `barcode` of the vendor products<br/>
-- `vendor_id` - _optional_ - Used to filter on the `vendor_id` of the vendor products<br/>
+* `user_id` - _required_
 
 ### View single vendor product
 
-_Tags:_ `VendorProducts`
+*Tags:* `VendorProducts`
 
 #### Input Parameters
-
-- `vendor_product_id` - _required_
+* `vendor_product_id` - _required_
 
 ### Add wall comment
 
-_Tags:_ `WallComments`
+*Tags:* `WallComments`
 
 ### View wall comment
 
-_Tags:_ `WallComments`
+*Tags:* `WallComments`
 
 #### Input Parameters
-
-- `wall_comment_id` - _required_
-
-### View list of wall posts
-
-_Tags:_ `WallPosts`
-
-#### Input Parameters
-
-- `project_id` - _required_
-- `user_id` - _optional_
+* `wall_comment_id` - _required_
 
 ### Add a wall post
 
-_Tags:_ `WallPosts`
+*Tags:* `WallPosts`
 
 ### View wall post
 
-_Tags:_ `WallPosts`
+*Tags:* `WallPosts`
 
 #### Input Parameters
-
-- `wall_post_id` - _required_
-
-### See wall comments to a wall post
-
-_Tags:_ `WallPosts`
-
-#### Input Parameters
-
-- `wall_post_id` - _required_
+* `wall_post_id` - _required_
 
 ## License
 
-: apacta-Component<br/>
-<br/>
+: apacta<br/>
+                    <br/>
 
 All files of this connector are licensed under the Apache 2.0 License. For details
 see the file LICENSE on the toplevel directory.
