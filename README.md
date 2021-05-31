@@ -188,7 +188,7 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
   <br/>
   response = http.request(request)<br/>
   puts response.read_body<br/>
-```<br/>
+``<br/>
 
 ### PHP (HttpRequest)<br/>
 ``<br/>
