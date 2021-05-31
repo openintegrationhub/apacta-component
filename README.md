@@ -56,7 +56,7 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
 
 ### Java<br/>
 #### OkHttp<br/>
-  <br/>
+``<br/>
   OkHttpClient client = new OkHttpClient();<br/>
   <br/>
   Request request = new Request.Builder()<br/>
@@ -67,7 +67,7 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
     .build();<br/>
   <br/>
   Response response = client.newCall(request).execute();<br/>
-```<br/>
+``<br/>
 
 #### Unirest<br/>
   <br/>
@@ -99,7 +99,7 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
   <br/>
 
 #### jQuery<br/>
-  <br/>
+ `` <br/>
   var settings = {<br/>
     "async": true,<br/>
     "crossDomain": true,<br/>
@@ -114,7 +114,7 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
   $.ajax(settings).done(function (response) {<br/>
     console.log(response);<br/>
   });<br/>
-```<br/>
+``<br/>
 
 #### NodeJS (Request)<br/>
 ``<br/>
@@ -159,17 +159,17 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
   data = res.read()<br/>
   <br/>
   print(data.decode("utf-8"))<br/>
-```<br/>
+``<br/>
 
 ### C#<br/>
 #### RestSharp<br/>
-`<br/>
+``<br/>
   var client = new RestClient("https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5");<br/>
   var request = new RestRequest(Method.GET);<br/>
   request.AddHeader("accept", "application/json");<br/>
   request.AddHeader("x-auth-token", "{INSERT_YOUR_TOKEN}");<br/>
   IRestResponse response = client.Execute(request);    <br/>
-`<br/>
+``<br/>
 
 ### Ruby<br/>
 ``<br/>
