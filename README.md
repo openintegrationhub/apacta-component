@@ -50,12 +50,13 @@ Write something about how the `errors` object contains keys with the properties 
 ## Code examples<br/>
 Running examples of how to retrieve the 5 most recent forms registered and embed the details of the User that made the form, and eventual products contained in the form<br/>
 ### Swift<br/>
-```<br/>
+<br/>
   <br/>
-```<br/>
+<br/>
+
 ### Java<br/>
 #### OkHttp<br/>
-```<br/>
+  <br/>
   OkHttpClient client = new OkHttpClient();<br/>
   <br/>
   Request request = new Request.Builder()<br/>
@@ -67,16 +68,18 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
   <br/>
   Response response = client.newCall(request).execute();<br/>
 ```<br/>
+
 #### Unirest<br/>
-```<br/>
+  <br/>
   HttpResponse<String> response = Unirest.get("https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5")<br/>
     .header("x-auth-token", "{INSERT_YOUR_TOKEN}")<br/>
     .header("accept", "application/json")<br/>
     .asString();<br/>
-```<br/>
+  <br/>
+
 ### Javascript<br/>
 #### Native<br/>
-```<br/>
+``<br/>
   var data = null;<br/>
   <br/>
   var xhr = new XMLHttpRequest();<br/>
@@ -93,9 +96,10 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
   xhr.setRequestHeader("accept", "application/json");<br/>
   <br/>
   xhr.send(data);<br/>
-```<br/>
+  <br/>
+
 #### jQuery<br/>
-```<br/>
+  <br/>
   var settings = {<br/>
     "async": true,<br/>
     "crossDomain": true,<br/>
@@ -111,8 +115,9 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
     console.log(response);<br/>
   });<br/>
 ```<br/>
+
 #### NodeJS (Request)<br/>
-```<br/>
+``<br/>
   var request = require("request");<br/>
 <br/>
   var options = { method: 'GET',<br/>
@@ -133,9 +138,10 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
     console.log(body);<br/>
   });<br/>
 <br/>
-```<br/>
+  <br/>
+
 ### Python 3<br/>
-```<br/>
+  <br/>
   import http.client<br/>
   <br/>
   conn = http.client.HTTPSConnection("app.apacta.com")<br/>
@@ -154,17 +160,19 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
   <br/>
   print(data.decode("utf-8"))<br/>
 ```<br/>
+
 ### C#<br/>
 #### RestSharp<br/>
-```<br/>
+`<br/>
   var client = new RestClient("https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5");<br/>
   var request = new RestRequest(Method.GET);<br/>
   request.AddHeader("accept", "application/json");<br/>
   request.AddHeader("x-auth-token", "{INSERT_YOUR_TOKEN}");<br/>
   IRestResponse response = client.Execute(request);    <br/>
-```<br/>
+`<br/>
+
 ### Ruby<br/>
-```<br/>
+``<br/>
   require 'uri'<br/>
   require 'net/http'<br/>
   <br/>
@@ -181,8 +189,9 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
   response = http.request(request)<br/>
   puts response.read_body<br/>
 ```<br/>
+
 ### PHP (HttpRequest)<br/>
-```<br/>
+``<br/>
   <?php<br/>
 <br/>
   $request = new HttpRequest();<br/>
@@ -209,9 +218,10 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
   } catch (HttpException $ex) {<br/>
     echo $ex;<br/>
   }<br/>
-```<br/>
+``<br/>
+
 ### Shell (cURL)<br/>
-```<br/>
+``<br/>
 <br/>
   $ curl --request GET --url 'https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5' --header 'accept: application/json' --header 'x-auth-token: {INSERT_YOUR_TOKEN}'<br/>
 <br/>
@@ -243,7 +253,7 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
 <br/>
 <br/>
   <br/>
-```<br/>
+``<br/>
 
 ## Authorization
 
