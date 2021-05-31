@@ -29,8 +29,8 @@ Is currently implemented on an experimental basis where you can append eg. `?inc
 Currently project files can be retrieved from two endpoints. `/projects/{project_id}/files` handles files uploaded from wall posts or forms. `/projects/{project_id}/project_files` allows uploading and showing files, not belonging to specific form or wall post.<br/>
 # Errors/Exceptions<br/>
 ## 422 (Validation)<br/>
-Write something about how the `errors` object contains keys with the properties that failes validation like: <br/>
-```<br/>
+Write something about how the `errors` object contains keys with the properties that failes validation like:<br/>
+``<br/>
   {<br/>
       "success": false,<br/>
       "data": {<br/>
@@ -45,7 +45,8 @@ Write something about how the `errors` object contains keys with the properties 
           }<br/>
       }<br/>
   }<br/>
-```<br/>
+``<br/>
+
 ## Code examples<br/>
 Running examples of how to retrieve the 5 most recent forms registered and embed the details of the User that made the form, and eventual products contained in the form<br/>
 ### Swift<br/>
