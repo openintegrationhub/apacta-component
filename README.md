@@ -1,8 +1,8 @@
-# ![LOGO](logo.png) Apacta OIH Connector
+# ![LOGO](https://cdn.iconscout.com/icon/free/png-256/jira-282222.png) Apacta OIH Connector
 
 ## Description
 
-[![Generic badge](https://img.shields.io/badge/Status-NotTested!-lightgrey.svg)](https://shields.io/)
+[![Generic badge](https://cdn.iconscout.com/icon/free/png-256/jira-282222.png)](https://shields.io/)
 
 A generated OIH connector for the Apacta API (version 0.0.1).
 
