@@ -1,64 +1,72 @@
 {
-    "type": "object",
     "properties": {
-        "created": {
-            "description": "READ-ONLY",
-            "format": "dateTime",
-            "type": "string"
+        "data": {
+            "properties": {
+                "created": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "created_by_id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "deleted": {
+                    "description": "READ-ONLY - only present if it's an deleted object",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "description": {
+                    "maxLength": 8192,
+                    "type": "string"
+                },
+                "discount_percent": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "discount_text": {
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "invoice_id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "modified": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "name": {
+                    "maxLength": 2048,
+                    "type": "string"
+                },
+                "product_id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "quantity": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "selling_price": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "user_id": {
+                    "format": "uuid",
+                    "type": "string"
+                }
+            },
+            "type": "object"
         },
-        "created_by_id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "deleted": {
-            "description": "READ-ONLY - only present if it's an deleted object",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "description": {
-            "maxLength": 8192,
-            "type": "string"
-        },
-        "discount_percent": {
-            "format": "int32",
-            "type": "integer"
-        },
-        "discount_text": {
-            "maxLength": 255,
-            "type": "string"
-        },
-        "id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "invoice_id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "modified": {
-            "description": "READ-ONLY",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "name": {
-            "maxLength": 2048,
-            "type": "string"
-        },
-        "product_id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "quantity": {
-            "format": "int32",
-            "type": "integer"
-        },
-        "selling_price": {
-            "format": "float",
-            "type": "number"
-        },
-        "user_id": {
-            "format": "uuid",
-            "type": "string"
+        "success": {
+            "type": "boolean"
         }
-    }
+    },
+    "type": "object"
 }

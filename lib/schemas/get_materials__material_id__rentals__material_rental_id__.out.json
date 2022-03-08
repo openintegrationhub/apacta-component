@@ -1,60 +1,68 @@
 {
-    "type": "object",
     "properties": {
-        "amount": {
-            "format": "float",
-            "type": "number"
+        "data": {
+            "properties": {
+                "amount": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "created": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "created_by_id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "deleted": {
+                    "description": "READ-ONLY - only present if it's an deleted object",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "from_date": {
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "is_invoiced": {
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "material_id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "modified": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "modified_by_id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "project_id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "quantity": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "to_date": {
+                    "format": "dateTime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
         },
-        "created": {
-            "description": "READ-ONLY",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "created_by_id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "deleted": {
-            "description": "READ-ONLY - only present if it's an deleted object",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "from_date": {
-            "format": "dateTime",
-            "type": "string"
-        },
-        "id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "is_invoiced": {
-            "format": "dateTime",
-            "type": "string"
-        },
-        "material_id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "modified": {
-            "description": "READ-ONLY",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "modified_by_id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "project_id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "quantity": {
-            "format": "float",
-            "type": "number"
-        },
-        "to_date": {
-            "format": "dateTime",
-            "type": "string"
+        "success": {
+            "type": "boolean"
         }
-    }
+    },
+    "type": "object"
 }

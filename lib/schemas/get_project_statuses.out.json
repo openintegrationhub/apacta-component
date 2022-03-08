@@ -1,23 +1,80 @@
 {
-    "type": "object",
     "properties": {
-        "count": {
-            "type": "integer"
+        "data": {
+            "items": {
+                "properties": {
+                    "created": {
+                        "description": "READ-ONLY",
+                        "format": "dateTime",
+                        "type": "string"
+                    },
+                    "created_by_id": {
+                        "format": "uuid",
+                        "type": "string"
+                    },
+                    "deleted": {
+                        "description": "READ-ONLY - only present if it's an deleted object",
+                        "format": "dateTime",
+                        "type": "string"
+                    },
+                    "description": {
+                        "maxLength": 8192,
+                        "type": "string"
+                    },
+                    "id": {
+                        "format": "uuid",
+                        "type": "string"
+                    },
+                    "identifier": {
+                        "description": "One of 3 values",
+                        "enum": [
+                            "ready_for_billing",
+                            "open",
+                            "closed"
+                        ],
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "modified": {
+                        "description": "READ-ONLY",
+                        "format": "dateTime",
+                        "type": "string"
+                    },
+                    "name": {
+                        "maxLength": 255,
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
         },
-        "current_page": {
-            "type": "string"
+        "pagination": {
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "current_page": {
+                    "type": "string"
+                },
+                "has_next_page": {
+                    "type": "boolean"
+                },
+                "has_prev_page": {
+                    "type": "boolean"
+                },
+                "limit": {
+                    "type": "integer"
+                },
+                "page_count": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
         },
-        "has_next_page": {
+        "success": {
             "type": "boolean"
-        },
-        "has_prev_page": {
-            "type": "boolean"
-        },
-        "limit": {
-            "type": "integer"
-        },
-        "page_count": {
-            "type": "string"
         }
-    }
+    },
+    "type": "object"
 }

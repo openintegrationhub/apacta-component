@@ -1,23 +1,108 @@
 {
-    "type": "object",
     "properties": {
-        "count": {
-            "type": "integer"
+        "data": {
+            "items": {
+                "properties": {
+                    "address": {
+                        "description": "Street address",
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "city_id": {
+                        "format": "uuid",
+                        "type": "string"
+                    },
+                    "company_id": {
+                        "description": "Only filled out if this represents another company within Apacta (used for partners)",
+                        "format": "uuid",
+                        "type": "string"
+                    },
+                    "created": {
+                        "description": "READ-ONLY",
+                        "format": "dateTime",
+                        "type": "string"
+                    },
+                    "created_by_id": {
+                        "description": "Read-only",
+                        "format": "uuid",
+                        "type": "string"
+                    },
+                    "cvr": {
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "deleted": {
+                        "description": "READ-ONLY - only present if it's an deleted object",
+                        "format": "dateTime",
+                        "type": "string"
+                    },
+                    "description": {
+                        "maxLength": 8192,
+                        "type": "string"
+                    },
+                    "email": {
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "erp_id": {
+                        "description": "If company has integration to an ERP system, and the contacts are synchronized, this will be the ERP-systems ID of this contact",
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "id": {
+                        "format": "uuid",
+                        "type": "string"
+                    },
+                    "modified": {
+                        "description": "READ-ONLY",
+                        "format": "dateTime",
+                        "type": "string"
+                    },
+                    "name": {
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "phone": {
+                        "description": "Format like eg. `28680133` or `046158971404`",
+                        "maxLength": 32,
+                        "type": "string"
+                    },
+                    "website": {
+                        "maxLength": 255,
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
         },
-        "current_page": {
-            "type": "string"
+        "pagination": {
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "current_page": {
+                    "type": "string"
+                },
+                "has_next_page": {
+                    "type": "boolean"
+                },
+                "has_prev_page": {
+                    "type": "boolean"
+                },
+                "limit": {
+                    "type": "integer"
+                },
+                "page_count": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
         },
-        "has_next_page": {
+        "success": {
+            "default": true,
             "type": "boolean"
-        },
-        "has_prev_page": {
-            "type": "boolean"
-        },
-        "limit": {
-            "type": "integer"
-        },
-        "page_count": {
-            "type": "string"
         }
-    }
+    },
+    "type": "object"
 }

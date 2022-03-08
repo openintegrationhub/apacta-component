@@ -1,60 +1,68 @@
 {
-    "type": "object",
     "properties": {
-        "barcode": {
-            "maxLength": 255,
-            "type": "string"
+        "data": {
+            "properties": {
+                "barcode": {
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "buying_price": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "company_id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "created": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "created_by_id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "deleted": {
+                    "description": "READ-ONLY - only present if it's an deleted object",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "description": {
+                    "maxLength": 8192,
+                    "type": "string"
+                },
+                "erp_id": {
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "modified": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "name": {
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "product_number": {
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "selling_price": {
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
         },
-        "buying_price": {
-            "format": "double",
-            "type": "number"
-        },
-        "company_id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "created": {
-            "description": "READ-ONLY",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "created_by_id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "deleted": {
-            "description": "READ-ONLY - only present if it's an deleted object",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "description": {
-            "maxLength": 8192,
-            "type": "string"
-        },
-        "erp_id": {
-            "maxLength": 255,
-            "type": "string"
-        },
-        "id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "modified": {
-            "description": "READ-ONLY",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "name": {
-            "maxLength": 255,
-            "type": "string"
-        },
-        "product_number": {
-            "maxLength": 255,
-            "type": "string"
-        },
-        "selling_price": {
-            "format": "double",
-            "type": "number"
+        "success": {
+            "type": "boolean"
         }
-    }
+    },
+    "type": "object"
 }

@@ -1,23 +1,67 @@
 {
-    "type": "object",
     "properties": {
-        "count": {
-            "type": "integer"
+        "data": {
+            "items": {
+                "properties": {
+                    "created": {
+                        "description": "READ-ONLY",
+                        "format": "dateTime",
+                        "type": "string"
+                    },
+                    "deleted": {
+                        "description": "READ-ONLY - only present if it's an deleted object",
+                        "format": "dateTime",
+                        "type": "string"
+                    },
+                    "id": {
+                        "format": "uuid",
+                        "type": "string"
+                    },
+                    "modified": {
+                        "description": "READ-ONLY",
+                        "format": "dateTime",
+                        "type": "string"
+                    },
+                    "name": {
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "zip_code": {
+                        "maxLength": 11,
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
         },
-        "current_page": {
-            "type": "string"
+        "pagination": {
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "current_page": {
+                    "type": "string"
+                },
+                "has_next_page": {
+                    "type": "boolean"
+                },
+                "has_prev_page": {
+                    "type": "boolean"
+                },
+                "limit": {
+                    "type": "integer"
+                },
+                "page_count": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
         },
-        "has_next_page": {
+        "success": {
+            "default": true,
             "type": "boolean"
-        },
-        "has_prev_page": {
-            "type": "boolean"
-        },
-        "limit": {
-            "type": "integer"
-        },
-        "page_count": {
-            "type": "string"
         }
-    }
+    },
+    "type": "object"
 }
