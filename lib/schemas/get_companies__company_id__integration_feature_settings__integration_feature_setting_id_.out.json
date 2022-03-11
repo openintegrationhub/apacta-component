@@ -1,51 +1,60 @@
 {
-    "type": "object",
     "properties": {
-        "created": {
-            "description": "READ-ONLY",
-            "format": "dateTime",
-            "type": "string"
+        "data": {
+            "properties": {
+                "created": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "created_by_id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "default_value": {
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "deleted": {
+                    "description": "READ-ONLY - only present if it's an deleted object",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "description": {
+                    "maxLength": 8192,
+                    "type": "string"
+                },
+                "id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "identifier": {
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "integration_feature_id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "is_custom_setting": {
+                    "type": "boolean"
+                },
+                "modified": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "name": {
+                    "maxLength": 255,
+                    "type": "string"
+                }
+            },
+            "type": "object"
         },
-        "created_by_id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "default_value": {
-            "maxLength": 255,
-            "type": "string"
-        },
-        "deleted": {
-            "description": "READ-ONLY - only present if it's an deleted object",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "description": {
-            "maxLength": 8192,
-            "type": "string"
-        },
-        "id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "identifier": {
-            "maxLength": 255,
-            "type": "string"
-        },
-        "integration_feature_id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "is_custom_setting": {
+        "success": {
+            "default": true,
             "type": "boolean"
-        },
-        "modified": {
-            "description": "READ-ONLY",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "name": {
-            "maxLength": 255,
-            "type": "string"
         }
-    }
+    },
+    "type": "object"
 }

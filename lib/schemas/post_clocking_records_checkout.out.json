@@ -1,4 +1,9 @@
 {
-    "type": "object",
-    "properties": {}
+    "properties": {
+        "success": {
+            "default": true,
+            "type": "boolean"
+        }
+    },
+    "type": "object"
 }

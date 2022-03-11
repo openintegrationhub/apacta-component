@@ -1,37 +1,46 @@
 {
-    "type": "object",
     "properties": {
-        "created": {
-            "description": "READ-ONLY",
-            "format": "dateTime",
-            "type": "string"
+        "data": {
+            "properties": {
+                "created": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "created_by_id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "days_of_credit": {
+                    "format": "int32",
+                    "maxLength": 11,
+                    "type": "integer"
+                },
+                "deleted": {
+                    "description": "READ-ONLY - only present if it's an deleted object",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "modified": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "payment_term_type_id": {
+                    "format": "uuid",
+                    "type": "string"
+                }
+            },
+            "type": "object"
         },
-        "created_by_id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "days_of_credit": {
-            "format": "int32",
-            "maxLength": 11,
-            "type": "integer"
-        },
-        "deleted": {
-            "description": "READ-ONLY - only present if it's an deleted object",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "modified": {
-            "description": "READ-ONLY",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "payment_term_type_id": {
-            "format": "uuid",
-            "type": "string"
+        "success": {
+            "default": true,
+            "type": "boolean"
         }
-    }
+    },
+    "type": "object"
 }

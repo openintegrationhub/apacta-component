@@ -1,23 +1,38 @@
 {
-    "type": "object",
     "properties": {
-        "count": {
-            "type": "integer"
+        "data": {
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
         },
-        "current_page": {
-            "type": "string"
+        "pagination": {
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "current_page": {
+                    "type": "string"
+                },
+                "has_next_page": {
+                    "type": "boolean"
+                },
+                "has_prev_page": {
+                    "type": "boolean"
+                },
+                "limit": {
+                    "type": "integer"
+                },
+                "page_count": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
         },
-        "has_next_page": {
+        "success": {
+            "default": true,
             "type": "boolean"
-        },
-        "has_prev_page": {
-            "type": "boolean"
-        },
-        "limit": {
-            "type": "integer"
-        },
-        "page_count": {
-            "type": "string"
         }
-    }
+    },
+    "type": "object"
 }

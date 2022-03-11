@@ -1,4 +1,18 @@
 {
-    "type": "object",
-    "properties": {}
+    "properties": {
+        "data": {
+            "properties": {
+                "id": {
+                    "format": "uuid",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "success": {
+            "default": true,
+            "type": "boolean"
+        }
+    },
+    "type": "object"
 }

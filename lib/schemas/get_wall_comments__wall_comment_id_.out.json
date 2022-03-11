@@ -1,35 +1,43 @@
 {
-    "type": "object",
     "properties": {
-        "created": {
-            "description": "READ-ONLY",
-            "format": "dateTime",
-            "type": "string"
+        "data": {
+            "properties": {
+                "created": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "deleted": {
+                    "description": "READ-ONLY - only present if it's an deleted object",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "modified": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "user_id": {
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "wall_post_id": {
+                    "format": "uuid",
+                    "type": "string"
+                }
+            },
+            "type": "object"
         },
-        "deleted": {
-            "description": "READ-ONLY - only present if it's an deleted object",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "message": {
-            "type": "string"
-        },
-        "modified": {
-            "description": "READ-ONLY",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "user_id": {
-            "maxLength": 255,
-            "type": "string"
-        },
-        "wall_post_id": {
-            "format": "uuid",
-            "type": "string"
+        "success": {
+            "type": "boolean"
         }
-    }
+    },
+    "type": "object"
 }

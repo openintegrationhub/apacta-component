@@ -1,4 +1,15 @@
 {
-    "type": "object",
-    "properties": {}
+    "properties": {
+        "data": {
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "success": {
+            "default": true,
+            "type": "boolean"
+        }
+    },
+    "type": "object"
 }

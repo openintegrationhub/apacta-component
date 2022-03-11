@@ -1,32 +1,41 @@
 {
-    "type": "object",
     "properties": {
-        "created": {
-            "description": "READ-ONLY",
-            "format": "dateTime",
-            "type": "string"
+        "data": {
+            "properties": {
+                "created": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "deleted": {
+                    "description": "READ-ONLY - only present if it's an deleted object",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "uuid",
+                    "type": "string"
+                },
+                "modified": {
+                    "description": "READ-ONLY",
+                    "format": "dateTime",
+                    "type": "string"
+                },
+                "name": {
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "zip_code": {
+                    "maxLength": 11,
+                    "type": "integer"
+                }
+            },
+            "type": "object"
         },
-        "deleted": {
-            "description": "READ-ONLY - only present if it's an deleted object",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "id": {
-            "format": "uuid",
-            "type": "string"
-        },
-        "modified": {
-            "description": "READ-ONLY",
-            "format": "dateTime",
-            "type": "string"
-        },
-        "name": {
-            "maxLength": 255,
-            "type": "string"
-        },
-        "zip_code": {
-            "maxLength": 11,
-            "type": "integer"
+        "success": {
+            "default": true,
+            "type": "boolean"
         }
-    }
+    },
+    "type": "object"
 }

@@ -1,4 +1,12 @@
 {
-    "type": "object",
-    "properties": {}
+    "properties": {
+        "data": {
+            "type": "object"
+        },
+        "success": {
+            "default": true,
+            "type": "boolean"
+        }
+    },
+    "type": "object"
 }

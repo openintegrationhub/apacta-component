@@ -1,23 +1,100 @@
 {
-    "type": "object",
     "properties": {
-        "count": {
-            "type": "integer"
+        "data": {
+            "items": {
+                "properties": {
+                    "approved_by_id": {
+                        "format": "uuid",
+                        "type": "string"
+                    },
+                    "company_id": {
+                        "format": "uuid",
+                        "type": "string"
+                    },
+                    "created": {
+                        "description": "READ-ONLY",
+                        "format": "dateTime",
+                        "type": "string"
+                    },
+                    "created_by_id": {
+                        "description": "Read-only",
+                        "format": "uuid",
+                        "type": "string"
+                    },
+                    "deleted": {
+                        "description": "READ-ONLY - only present if it's an deleted object",
+                        "format": "dateTime",
+                        "type": "string"
+                    },
+                    "form_date": {
+                        "format": "date",
+                        "type": "string"
+                    },
+                    "form_template_id": {
+                        "format": "uuid",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Read-only",
+                        "format": "uuid",
+                        "type": "string"
+                    },
+                    "is_draft": {
+                        "default": false,
+                        "type": "boolean"
+                    },
+                    "is_invoiced": {
+                        "default": false,
+                        "type": "boolean"
+                    },
+                    "is_shared": {
+                        "default": false,
+                        "type": "boolean"
+                    },
+                    "mass_form_id": {
+                        "format": "uuid",
+                        "type": "string"
+                    },
+                    "modified": {
+                        "description": "READ-ONLY",
+                        "format": "dateTime",
+                        "type": "string"
+                    },
+                    "project_id": {
+                        "format": "uuid",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
         },
-        "current_page": {
-            "type": "string"
+        "pagination": {
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "current_page": {
+                    "type": "string"
+                },
+                "has_next_page": {
+                    "type": "boolean"
+                },
+                "has_prev_page": {
+                    "type": "boolean"
+                },
+                "limit": {
+                    "type": "integer"
+                },
+                "page_count": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
         },
-        "has_next_page": {
+        "success": {
             "type": "boolean"
-        },
-        "has_prev_page": {
-            "type": "boolean"
-        },
-        "limit": {
-            "type": "integer"
-        },
-        "page_count": {
-            "type": "string"
         }
-    }
+    },
+    "type": "object"
 }
