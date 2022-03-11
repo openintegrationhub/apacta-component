@@ -39,12 +39,6 @@
         "get_cities": {
             "main": "./lib/triggers/trigger.js",
             "title": "Get list of cities supported in Apacta",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/cities",
                 "method": "get"
@@ -54,51 +48,9 @@
                 "out": "./lib/schemas/get_cities.out.json"
             }
         },
-        "get_clocking_records": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "Get a list of clocking records",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/clocking_records",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_clocking_records.in.json",
-                "out": "./lib/schemas/get_clocking_records.out.json"
-            }
-        },
-        "get_companies": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "Get a list of companies",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/companies",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_companies.in.json",
-                "out": "./lib/schemas/get_companies.out.json"
-            }
-        },
         "get_companies__company_id__integration_feature_settings": {
             "main": "./lib/triggers/trigger.js",
             "title": "Get a list of integration feature settings",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/companies/{company_id}/integration_feature_settings",
                 "method": "get"
@@ -111,12 +63,6 @@
         "get_contacts": {
             "main": "./lib/triggers/trigger.js",
             "title": "Get a list of contacts",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/contacts",
                 "method": "get"
@@ -126,51 +72,9 @@
                 "out": "./lib/schemas/get_contacts.out.json"
             }
         },
-        "get_currencies": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "Get list of currencies supported in Apacta",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/currencies",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_currencies.in.json",
-                "out": "./lib/schemas/get_currencies.out.json"
-            }
-        },
-        "get_contact_types": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "Get list of contact types supported in Apacta",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/contact_types",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_contact_types.in.json",
-                "out": "./lib/schemas/get_contact_types.out.json"
-            }
-        },
         "get_expense_files": {
             "main": "./lib/triggers/trigger.js",
             "title": "Show list of expense files",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/expense_files",
                 "method": "get"
@@ -180,33 +84,33 @@
                 "out": "./lib/schemas/get_expense_files.out.json"
             }
         },
-        "get_expenses": {
+        "get_employee_hours": {
             "main": "./lib/triggers/trigger.js",
-            "title": "Show list of expenses",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Used to retrieve details about the logged in user's hours",
             "callParams": {
-                "pathName": "/expenses",
+                "pathName": "/employee_hours",
                 "method": "get"
             },
             "metadata": {
-                "in": "./lib/schemas/get_expenses.in.json",
-                "out": "./lib/schemas/get_expenses.out.json"
+                "in": "./lib/schemas/get_employee_hours.in.json",
+                "out": "./lib/schemas/get_employee_hours.out.json"
+            }
+        },
+        "get_companies": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Get a list of companies",
+            "callParams": {
+                "pathName": "/companies",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_companies.in.json",
+                "out": "./lib/schemas/get_companies.out.json"
             }
         },
         "get_expense_lines": {
             "main": "./lib/triggers/trigger.js",
             "title": "Show list of expense lines",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/expense_lines",
                 "method": "get"
@@ -216,15 +120,21 @@
                 "out": "./lib/schemas/get_expense_lines.out.json"
             }
         },
+        "get_expenses": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Show list of expenses",
+            "callParams": {
+                "pathName": "/expenses",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_expenses.in.json",
+                "out": "./lib/schemas/get_expenses.out.json"
+            }
+        },
         "get_form_field_types": {
             "main": "./lib/triggers/trigger.js",
             "title": "Get list of form field types",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/form_field_types",
                 "method": "get"
@@ -234,51 +144,9 @@
                 "out": "./lib/schemas/get_form_field_types.out.json"
             }
         },
-        "get_form_templates": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "Get array of form_templates for your company",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/form_templates",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_form_templates.in.json",
-                "out": "./lib/schemas/get_form_templates.out.json"
-            }
-        },
-        "get_forms": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "Retrieve array of forms",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/forms",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_forms.in.json",
-                "out": "./lib/schemas/get_forms.out.json"
-            }
-        },
         "get_expenses__expense_id__original_files": {
             "main": "./lib/triggers/trigger.js",
             "title": "Show list of all OIOUBL files for the expense",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/expenses/{expense_id}/original_files",
                 "method": "get"
@@ -288,33 +156,45 @@
                 "out": "./lib/schemas/get_expenses__expense_id__original_files.out.json"
             }
         },
-        "get_invoices": {
+        "get_forms": {
             "main": "./lib/triggers/trigger.js",
-            "title": "View list of invoices",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Retrieve array of forms",
             "callParams": {
-                "pathName": "/invoices",
+                "pathName": "/forms",
                 "method": "get"
             },
             "metadata": {
-                "in": "./lib/schemas/get_invoices.in.json",
-                "out": "./lib/schemas/get_invoices.out.json"
+                "in": "./lib/schemas/get_forms.in.json",
+                "out": "./lib/schemas/get_forms.out.json"
+            }
+        },
+        "get_form_templates": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Get array of form_templates for your company",
+            "callParams": {
+                "pathName": "/form_templates",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_form_templates.in.json",
+                "out": "./lib/schemas/get_form_templates.out.json"
+            }
+        },
+        "get_currencies": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Get list of currencies supported in Apacta",
+            "callParams": {
+                "pathName": "/currencies",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_currencies.in.json",
+                "out": "./lib/schemas/get_currencies.out.json"
             }
         },
         "get_invoice_lines": {
             "main": "./lib/triggers/trigger.js",
             "title": "View list of invoice lines",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/invoice_lines",
                 "method": "get"
@@ -324,15 +204,21 @@
                 "out": "./lib/schemas/get_invoice_lines.out.json"
             }
         },
+        "get_invoices": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "View list of invoices",
+            "callParams": {
+                "pathName": "/invoices",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_invoices.in.json",
+                "out": "./lib/schemas/get_invoices.out.json"
+            }
+        },
         "get_mass_messages_users": {
             "main": "./lib/triggers/trigger.js",
             "title": "View list of mass messages for specific user",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/mass_messages_users",
                 "method": "get"
@@ -345,12 +231,6 @@
         "get_materials": {
             "main": "./lib/triggers/trigger.js",
             "title": "View list of all materials",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/materials",
                 "method": "get"
@@ -360,69 +240,9 @@
                 "out": "./lib/schemas/get_materials.out.json"
             }
         },
-        "get_materials__material_id__rentals__material_rental_id__": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "Show rental foor materi",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/materials/{material_id}/rentals/{material_rental_id}/",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_materials__material_id__rentals__material_rental_id__.in.json",
-                "out": "./lib/schemas/get_materials__material_id__rentals__material_rental_id__.out.json"
-            }
-        },
-        "get_payment_term_types": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "Get a list of payment term types",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/payment_term_types",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_payment_term_types.in.json",
-                "out": "./lib/schemas/get_payment_term_types.out.json"
-            }
-        },
-        "get_payment_terms": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "Get a list of payment terms",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/payment_terms",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_payment_terms.in.json",
-                "out": "./lib/schemas/get_payment_terms.out.json"
-            }
-        },
         "get_materials__material_id__rentals_": {
             "main": "./lib/triggers/trigger.js",
             "title": "Show list of rentals for specific material",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/materials/{material_id}/rentals/",
                 "method": "get"
@@ -432,252 +252,33 @@
                 "out": "./lib/schemas/get_materials__material_id__rentals_.out.json"
             }
         },
-        "get_products": {
+        "get_payment_term_types": {
             "main": "./lib/triggers/trigger.js",
-            "title": "List products",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Get a list of payment term types",
             "callParams": {
-                "pathName": "/products",
+                "pathName": "/payment_term_types",
                 "method": "get"
             },
             "metadata": {
-                "in": "./lib/schemas/get_products.in.json",
-                "out": "./lib/schemas/get_products.out.json"
+                "in": "./lib/schemas/get_payment_term_types.in.json",
+                "out": "./lib/schemas/get_payment_term_types.out.json"
             }
         },
-        "get_project_statuses": {
+        "get_materials__material_id__rentals__material_rental_id__": {
             "main": "./lib/triggers/trigger.js",
-            "title": "Get list of project statuses",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Show rental foor materi",
             "callParams": {
-                "pathName": "/project_statuses",
+                "pathName": "/materials/{material_id}/rentals/{material_rental_id}/",
                 "method": "get"
             },
             "metadata": {
-                "in": "./lib/schemas/get_project_statuses.in.json",
-                "out": "./lib/schemas/get_project_statuses.out.json"
-            }
-        },
-        "get_projects__project_id__files": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "Show list of files uploaded to project",
-            "description": "Used to show files uploaded to a project from wall post or form",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/projects/{project_id}/files",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_projects__project_id__files.in.json",
-                "out": "./lib/schemas/get_projects__project_id__files.out.json"
-            }
-        },
-        "get_projects__project_id__project_files": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "Show list of project files uploaded to project",
-            "description": "Returns files belonging to the project, not uploaded from wall post or form",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/projects/{project_id}/project_files",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_projects__project_id__project_files.in.json",
-                "out": "./lib/schemas/get_projects__project_id__project_files.out.json"
-            }
-        },
-        "get_projects__project_id__project_files__project_file_id__": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "Show project file",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/projects/{project_id}/project_files/{project_file_id}/",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_projects__project_id__project_files__project_file_id__.in.json",
-                "out": "./lib/schemas/get_projects__project_id__project_files__project_file_id__.out.json"
-            }
-        },
-        "get_projects__project_id__users_": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "Show list of users added to project",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/projects/{project_id}/users/",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_projects__project_id__users_.in.json",
-                "out": "./lib/schemas/get_projects__project_id__users_.out.json"
-            }
-        },
-        "get_projects__project_id__files__file_id__": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "Show file",
-            "description": "Show file uploaded to a project from wall post or form",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/projects/{project_id}/files/{file_id}/",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_projects__project_id__files__file_id__.in.json",
-                "out": "./lib/schemas/get_projects__project_id__files__file_id__.out.json"
-            }
-        },
-        "get_stock_locations": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "List stock_locations",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/stock_locations",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_stock_locations.in.json",
-                "out": "./lib/schemas/get_stock_locations.out.json"
-            }
-        },
-        "get_employee_hours": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "Used to retrieve details about the logged in user's hours",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/employee_hours",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_employee_hours.in.json",
-                "out": "./lib/schemas/get_employee_hours.out.json"
-            }
-        },
-        "get_time_entries": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "List time entries",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/time_entries",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_time_entries.in.json",
-                "out": "./lib/schemas/get_time_entries.out.json"
-            }
-        },
-        "get_time_entry_value_types": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "List possible time entry value types",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/time_entry_value_types",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_time_entry_value_types.in.json",
-                "out": "./lib/schemas/get_time_entry_value_types.out.json"
-            }
-        },
-        "get_time_entry_intervals": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "List possible time entry intervals",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/time_entry_intervals",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_time_entry_intervals.in.json",
-                "out": "./lib/schemas/get_time_entry_intervals.out.json"
-            }
-        },
-        "get_time_entry_unit_types": {
-            "main": "./lib/triggers/trigger.js",
-            "title": "List possible time entry unit types",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/time_entry_unit_types",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_time_entry_unit_types.in.json",
-                "out": "./lib/schemas/get_time_entry_unit_types.out.json"
+                "in": "./lib/schemas/get_materials__material_id__rentals__material_rental_id__.in.json",
+                "out": "./lib/schemas/get_materials__material_id__rentals__material_rental_id__.out.json"
             }
         },
         "get_ping": {
             "main": "./lib/triggers/trigger.js",
             "title": "Check if API is up and API key works",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/ping",
                 "method": "get"
@@ -687,87 +288,96 @@
                 "out": "./lib/schemas/get_ping.out.json"
             }
         },
-        "get_vendor_products": {
+        "get_payment_terms": {
             "main": "./lib/triggers/trigger.js",
-            "title": "List vendor products",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Get a list of payment terms",
             "callParams": {
-                "pathName": "/vendor_products",
+                "pathName": "/payment_terms",
                 "method": "get"
             },
             "metadata": {
-                "in": "./lib/schemas/get_vendor_products.in.json",
-                "out": "./lib/schemas/get_vendor_products.out.json"
+                "in": "./lib/schemas/get_payment_terms.in.json",
+                "out": "./lib/schemas/get_payment_terms.out.json"
             }
         },
-        "get_users": {
+        "get_clocking_records": {
             "main": "./lib/triggers/trigger.js",
-            "title": "Get list of users in company",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Get a list of clocking records",
             "callParams": {
-                "pathName": "/users",
+                "pathName": "/clocking_records",
                 "method": "get"
             },
             "metadata": {
-                "in": "./lib/schemas/get_users.in.json",
-                "out": "./lib/schemas/get_users.out.json"
+                "in": "./lib/schemas/get_clocking_records.in.json",
+                "out": "./lib/schemas/get_clocking_records.out.json"
             }
         },
-        "get_wall_posts": {
+        "get_products": {
             "main": "./lib/triggers/trigger.js",
-            "title": "View list of wall posts",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "List products",
             "callParams": {
-                "pathName": "/wall_posts",
+                "pathName": "/products",
                 "method": "get"
             },
             "metadata": {
-                "in": "./lib/schemas/get_wall_posts.in.json",
-                "out": "./lib/schemas/get_wall_posts.out.json"
+                "in": "./lib/schemas/get_products.in.json",
+                "out": "./lib/schemas/get_products.out.json"
             }
         },
-        "get_wall_posts__wall_post_id__wall_comments": {
+        "get_contact_types": {
             "main": "./lib/triggers/trigger.js",
-            "title": "See wall comments to a wall post",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Get list of contact types supported in Apacta",
             "callParams": {
-                "pathName": "/wall_posts/{wall_post_id}/wall_comments",
+                "pathName": "/contact_types",
                 "method": "get"
             },
             "metadata": {
-                "in": "./lib/schemas/get_wall_posts__wall_post_id__wall_comments.in.json",
-                "out": "./lib/schemas/get_wall_posts__wall_post_id__wall_comments.out.json"
+                "in": "./lib/schemas/get_contact_types.in.json",
+                "out": "./lib/schemas/get_contact_types.out.json"
+            }
+        },
+        "get_projects__project_id__project_files": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Show list of project files uploaded to project",
+            "description": "Returns files belonging to the project, not uploaded from wall post or form",
+            "callParams": {
+                "pathName": "/projects/{project_id}/project_files",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_projects__project_id__project_files.in.json",
+                "out": "./lib/schemas/get_projects__project_id__project_files.out.json"
+            }
+        },
+        "get_projects__project_id__files": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Show list of files uploaded to project",
+            "description": "Used to show files uploaded to a project from wall post or form",
+            "callParams": {
+                "pathName": "/projects/{project_id}/files",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_projects__project_id__files.in.json",
+                "out": "./lib/schemas/get_projects__project_id__files.out.json"
+            }
+        },
+        "get_projects__project_id__files__file_id__": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Show file",
+            "description": "Show file uploaded to a project from wall post or form",
+            "callParams": {
+                "pathName": "/projects/{project_id}/files/{file_id}/",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_projects__project_id__files__file_id__.in.json",
+                "out": "./lib/schemas/get_projects__project_id__files__file_id__.out.json"
             }
         },
         "get_projects": {
             "main": "./lib/triggers/trigger.js",
             "title": "View list of projects",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/projects",
                 "method": "get"
@@ -777,15 +387,45 @@
                 "out": "./lib/schemas/get_projects.out.json"
             }
         },
+        "get_projects__project_id__project_files__project_file_id__": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Show project file",
+            "callParams": {
+                "pathName": "/projects/{project_id}/project_files/{project_file_id}/",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_projects__project_id__project_files__project_file_id__.in.json",
+                "out": "./lib/schemas/get_projects__project_id__project_files__project_file_id__.out.json"
+            }
+        },
+        "get_project_statuses": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Get list of project statuses",
+            "callParams": {
+                "pathName": "/project_statuses",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_project_statuses.in.json",
+                "out": "./lib/schemas/get_project_statuses.out.json"
+            }
+        },
+        "get_stock_locations": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "List stock_locations",
+            "callParams": {
+                "pathName": "/stock_locations",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_stock_locations.in.json",
+                "out": "./lib/schemas/get_stock_locations.out.json"
+            }
+        },
         "get_time_entry_types": {
             "main": "./lib/triggers/trigger.js",
             "title": "List time entries types",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/time_entry_types",
                 "method": "get"
@@ -794,36 +434,120 @@
                 "in": "./lib/schemas/get_time_entry_types.in.json",
                 "out": "./lib/schemas/get_time_entry_types.out.json"
             }
-        }
-    },
-    "actions": {
-        "get_clocking_records__clocking_record_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Details of 1 clocking_record",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+        },
+        "get_time_entry_intervals": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "List possible time entry intervals",
             "callParams": {
-                "pathName": "/clocking_records/{clocking_record_id}",
+                "pathName": "/time_entry_intervals",
                 "method": "get"
             },
             "metadata": {
-                "in": "./lib/schemas/get_clocking_records__clocking_record_id_.in.json",
-                "out": "./lib/schemas/get_clocking_records__clocking_record_id_.out.json"
+                "in": "./lib/schemas/get_time_entry_intervals.in.json",
+                "out": "./lib/schemas/get_time_entry_intervals.out.json"
             }
         },
+        "get_time_entries": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "List time entries",
+            "callParams": {
+                "pathName": "/time_entries",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_time_entries.in.json",
+                "out": "./lib/schemas/get_time_entries.out.json"
+            }
+        },
+        "get_time_entry_unit_types": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "List possible time entry unit types",
+            "callParams": {
+                "pathName": "/time_entry_unit_types",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_time_entry_unit_types.in.json",
+                "out": "./lib/schemas/get_time_entry_unit_types.out.json"
+            }
+        },
+        "get_users": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Get list of users in company",
+            "callParams": {
+                "pathName": "/users",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_users.in.json",
+                "out": "./lib/schemas/get_users.out.json"
+            }
+        },
+        "get_time_entry_value_types": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "List possible time entry value types",
+            "callParams": {
+                "pathName": "/time_entry_value_types",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_time_entry_value_types.in.json",
+                "out": "./lib/schemas/get_time_entry_value_types.out.json"
+            }
+        },
+        "get_wall_posts": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "View list of wall posts",
+            "callParams": {
+                "pathName": "/wall_posts",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_wall_posts.in.json",
+                "out": "./lib/schemas/get_wall_posts.out.json"
+            }
+        },
+        "get_projects__project_id__users_": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Show list of users added to project",
+            "callParams": {
+                "pathName": "/projects/{project_id}/users/",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_projects__project_id__users_.in.json",
+                "out": "./lib/schemas/get_projects__project_id__users_.out.json"
+            }
+        },
+        "get_wall_posts__wall_post_id__wall_comments": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "See wall comments to a wall post",
+            "callParams": {
+                "pathName": "/wall_posts/{wall_post_id}/wall_comments",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_wall_posts__wall_post_id__wall_comments.in.json",
+                "out": "./lib/schemas/get_wall_posts__wall_post_id__wall_comments.out.json"
+            }
+        },
+        "get_vendor_products": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "List vendor products",
+            "callParams": {
+                "pathName": "/vendor_products",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_vendor_products.in.json",
+                "out": "./lib/schemas/get_vendor_products.out.json"
+            }
+        }
+    },
+    "actions": {
         "get_cities__city_id_": {
             "main": "./lib/actions/action.js",
             "title": "Get details about one city",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/cities/{city_id}",
                 "method": "get"
@@ -836,12 +560,6 @@
         "post_clocking_records_checkout": {
             "main": "./lib/actions/action.js",
             "title": "Checkout active clocking record for authenticated user",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/clocking_records/checkout",
                 "method": "post"
@@ -851,15 +569,57 @@
                 "out": "./lib/schemas/post_clocking_records_checkout.out.json"
             }
         },
+        "get_clocking_records__clocking_record_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Details of 1 clocking_record",
+            "callParams": {
+                "pathName": "/clocking_records/{clocking_record_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_clocking_records__clocking_record_id_.in.json",
+                "out": "./lib/schemas/get_clocking_records__clocking_record_id_.out.json"
+            }
+        },
+        "get_companies__company_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Details of 1 company",
+            "callParams": {
+                "pathName": "/companies/{company_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_companies__company_id_.in.json",
+                "out": "./lib/schemas/get_companies__company_id_.out.json"
+            }
+        },
+        "delete_clocking_records__clocking_record_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Delete a clocking record",
+            "callParams": {
+                "pathName": "/clocking_records/{clocking_record_id}",
+                "method": "delete"
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_clocking_records__clocking_record_id_.in.json",
+                "out": "./lib/schemas/delete_clocking_records__clocking_record_id_.out.json"
+            }
+        },
+        "get_companies__company_id__integration_feature_settings__integration_feature_setting_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Show details of 1 integration feature setting",
+            "callParams": {
+                "pathName": "/companies/{company_id}/integration_feature_settings/{integration_feature_setting_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_companies__company_id__integration_feature_settings__integration_feature_setting_id_.in.json",
+                "out": "./lib/schemas/get_companies__company_id__integration_feature_settings__integration_feature_setting_id_.out.json"
+            }
+        },
         "post_contacts": {
             "main": "./lib/actions/action.js",
             "title": "Add a new contact",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/contacts",
                 "method": "post",
@@ -870,33 +630,9 @@
                 "out": "./lib/schemas/post_contacts.out.json"
             }
         },
-        "get_contacts__contact_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Details of 1 contact",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/contacts/{contact_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_contacts__contact_id_.in.json",
-                "out": "./lib/schemas/get_contacts__contact_id_.out.json"
-            }
-        },
         "get_contact_types__contact_type_id_": {
             "main": "./lib/actions/action.js",
             "title": "Get details about one contact type",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/contact_types/{contact_type_id}",
                 "method": "get"
@@ -909,12 +645,6 @@
         "put_contacts__contact_id_": {
             "main": "./lib/actions/action.js",
             "title": "Edit a contact",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/contacts/{contact_id}",
                 "method": "put",
@@ -925,33 +655,33 @@
                 "out": "./lib/schemas/put_contacts__contact_id_.out.json"
             }
         },
-        "delete_contacts__contact_id_": {
+        "put_clocking_records__clocking_record_id_": {
             "main": "./lib/actions/action.js",
-            "title": "Delete a contact",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Edit a clocking record",
             "callParams": {
-                "pathName": "/contacts/{contact_id}",
-                "method": "delete"
+                "pathName": "/clocking_records/{clocking_record_id}",
+                "method": "put"
             },
             "metadata": {
-                "in": "./lib/schemas/delete_contacts__contact_id_.in.json",
-                "out": "./lib/schemas/delete_contacts__contact_id_.out.json"
+                "in": "./lib/schemas/put_clocking_records__clocking_record_id_.in.json",
+                "out": "./lib/schemas/put_clocking_records__clocking_record_id_.out.json"
+            }
+        },
+        "get_contacts__contact_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Details of 1 contact",
+            "callParams": {
+                "pathName": "/contacts/{contact_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_contacts__contact_id_.in.json",
+                "out": "./lib/schemas/get_contacts__contact_id_.out.json"
             }
         },
         "get_currencies__currency_id_": {
             "main": "./lib/actions/action.js",
             "title": "Get details about one currency",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/currencies/{currency_id}",
                 "method": "get"
@@ -961,69 +691,9 @@
                 "out": "./lib/schemas/get_currencies__currency_id_.out.json"
             }
         },
-        "get_expense_files__expense_file_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Show file",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/expense_files/{expense_file_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_expense_files__expense_file_id_.in.json",
-                "out": "./lib/schemas/get_expense_files__expense_file_id_.out.json"
-            }
-        },
-        "put_expense_files__expense_file_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Edit file",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/expense_files/{expense_file_id}",
-                "method": "put"
-            },
-            "metadata": {
-                "in": "./lib/schemas/put_expense_files__expense_file_id_.in.json",
-                "out": "./lib/schemas/put_expense_files__expense_file_id_.out.json"
-            }
-        },
-        "delete_clocking_records__clocking_record_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Delete a clocking record",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/clocking_records/{clocking_record_id}",
-                "method": "delete"
-            },
-            "metadata": {
-                "in": "./lib/schemas/delete_clocking_records__clocking_record_id_.in.json",
-                "out": "./lib/schemas/delete_clocking_records__clocking_record_id_.out.json"
-            }
-        },
         "post_expense_files": {
             "main": "./lib/actions/action.js",
             "title": "Add file to expense",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/expense_files",
                 "method": "post",
@@ -1034,33 +704,9 @@
                 "out": "./lib/schemas/post_expense_files.out.json"
             }
         },
-        "put_clocking_records__clocking_record_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Edit a clocking record",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/clocking_records/{clocking_record_id}",
-                "method": "put"
-            },
-            "metadata": {
-                "in": "./lib/schemas/put_clocking_records__clocking_record_id_.in.json",
-                "out": "./lib/schemas/put_clocking_records__clocking_record_id_.out.json"
-            }
-        },
         "post_expense_lines": {
             "main": "./lib/actions/action.js",
             "title": "Add line to expense",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/expense_lines",
                 "method": "post",
@@ -1071,15 +717,45 @@
                 "out": "./lib/schemas/post_expense_lines.out.json"
             }
         },
+        "put_expense_files__expense_file_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Edit file",
+            "callParams": {
+                "pathName": "/expense_files/{expense_file_id}",
+                "method": "put"
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_expense_files__expense_file_id_.in.json",
+                "out": "./lib/schemas/put_expense_files__expense_file_id_.out.json"
+            }
+        },
+        "get_expense_files__expense_file_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Show file",
+            "callParams": {
+                "pathName": "/expense_files/{expense_file_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_expense_files__expense_file_id_.in.json",
+                "out": "./lib/schemas/get_expense_files__expense_file_id_.out.json"
+            }
+        },
+        "delete_expense_lines__expense_line_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Delete expense line",
+            "callParams": {
+                "pathName": "/expense_lines/{expense_line_id}",
+                "method": "delete"
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_expense_lines__expense_line_id_.in.json",
+                "out": "./lib/schemas/delete_expense_lines__expense_line_id_.out.json"
+            }
+        },
         "get_expense_lines__expense_line_id_": {
             "main": "./lib/actions/action.js",
             "title": "Show expense line",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/expense_lines/{expense_line_id}",
                 "method": "get"
@@ -1089,33 +765,21 @@
                 "out": "./lib/schemas/get_expense_lines__expense_line_id_.out.json"
             }
         },
-        "delete_expense_files__expense_file_id_": {
+        "put_expense_lines__expense_line_id_": {
             "main": "./lib/actions/action.js",
-            "title": "Delete file",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Edit expense line",
             "callParams": {
-                "pathName": "/expense_files/{expense_file_id}",
-                "method": "delete"
+                "pathName": "/expense_lines/{expense_line_id}",
+                "method": "put"
             },
             "metadata": {
-                "in": "./lib/schemas/delete_expense_files__expense_file_id_.in.json",
-                "out": "./lib/schemas/delete_expense_files__expense_file_id_.out.json"
+                "in": "./lib/schemas/put_expense_lines__expense_line_id_.in.json",
+                "out": "./lib/schemas/put_expense_lines__expense_line_id_.out.json"
             }
         },
         "post_expenses": {
             "main": "./lib/actions/action.js",
             "title": "Add line to expense",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/expenses",
                 "method": "post",
@@ -1126,33 +790,21 @@
                 "out": "./lib/schemas/post_expenses.out.json"
             }
         },
-        "put_expense_lines__expense_line_id_": {
+        "put_expenses__expense_id_": {
             "main": "./lib/actions/action.js",
-            "title": "Edit expense line",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Edit expense",
             "callParams": {
-                "pathName": "/expense_lines/{expense_line_id}",
+                "pathName": "/expenses/{expense_id}",
                 "method": "put"
             },
             "metadata": {
-                "in": "./lib/schemas/put_expense_lines__expense_line_id_.in.json",
-                "out": "./lib/schemas/put_expense_lines__expense_line_id_.out.json"
+                "in": "./lib/schemas/put_expenses__expense_id_.in.json",
+                "out": "./lib/schemas/put_expenses__expense_id_.out.json"
             }
         },
         "delete_expenses__expense_id_": {
             "main": "./lib/actions/action.js",
             "title": "Delete expense",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/expenses/{expense_id}",
                 "method": "delete"
@@ -1162,15 +814,21 @@
                 "out": "./lib/schemas/delete_expenses__expense_id_.out.json"
             }
         },
+        "get_expenses__expense_id__original_files__file_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Show OIOUBL file",
+            "callParams": {
+                "pathName": "/expenses/{expense_id}/original_files/{file_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_expenses__expense_id__original_files__file_id_.in.json",
+                "out": "./lib/schemas/get_expenses__expense_id__original_files__file_id_.out.json"
+            }
+        },
         "get_expenses__expense_id_": {
             "main": "./lib/actions/action.js",
             "title": "Show expense",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/expenses/{expense_id}",
                 "method": "get"
@@ -1180,15 +838,58 @@
                 "out": "./lib/schemas/get_expenses__expense_id_.out.json"
             }
         },
+        "get_form_field_types__form_field_type_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Get details about single `FormField`",
+            "callParams": {
+                "pathName": "/form_field_types/{form_field_type_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_form_field_types__form_field_type_id_.in.json",
+                "out": "./lib/schemas/get_form_field_types__form_field_type_id_.out.json"
+            }
+        },
+        "get_form_fields__form_field_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Get details about single `FormField`",
+            "callParams": {
+                "pathName": "/form_fields/{form_field_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_form_fields__form_field_id_.in.json",
+                "out": "./lib/schemas/get_form_fields__form_field_id_.out.json"
+            }
+        },
+        "delete_forms__form_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Delete a form",
+            "description": "You can only delete the forms that you've submitted yourself",
+            "callParams": {
+                "pathName": "/forms/{form_id}",
+                "method": "delete"
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_forms__form_id_.in.json",
+                "out": "./lib/schemas/delete_forms__form_id_.out.json"
+            }
+        },
+        "put_forms__form_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Edit a form",
+            "callParams": {
+                "pathName": "/forms/{form_id}",
+                "method": "put"
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_forms__form_id_.in.json",
+                "out": "./lib/schemas/put_forms__form_id_.out.json"
+            }
+        },
         "post_form_fields": {
             "main": "./lib/actions/action.js",
             "title": "Add a new field to a `Form`",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/form_fields",
                 "method": "post",
@@ -1199,71 +900,9 @@
                 "out": "./lib/schemas/post_form_fields.out.json"
             }
         },
-        "get_expenses__expense_id__original_files__file_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Show OIOUBL file",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/expenses/{expense_id}/original_files/{file_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_expenses__expense_id__original_files__file_id_.in.json",
-                "out": "./lib/schemas/get_expenses__expense_id__original_files__file_id_.out.json"
-            }
-        },
-        "post_forms": {
-            "main": "./lib/actions/action.js",
-            "title": "Add new form",
-            "description": "Used to add a form into the system",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/forms",
-                "method": "post",
-                "requestContentType": "application/json"
-            },
-            "metadata": {
-                "in": "./lib/schemas/post_forms.in.json",
-                "out": "./lib/schemas/post_forms.out.json"
-            }
-        },
-        "get_form_field_types__form_field_type_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Get details about single `FormField`",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/form_field_types/{form_field_type_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_form_field_types__form_field_type_id_.in.json",
-                "out": "./lib/schemas/get_form_field_types__form_field_type_id_.out.json"
-            }
-        },
         "get_form_templates__form_template_id_": {
             "main": "./lib/actions/action.js",
             "title": "View one form template",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/form_templates/{form_template_id}",
                 "method": "get"
@@ -1273,106 +912,9 @@
                 "out": "./lib/schemas/get_form_templates__form_template_id_.out.json"
             }
         },
-        "delete_forms__form_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Delete a form",
-            "description": "You can only delete the forms that you've submitted yourself",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/forms/{form_id}",
-                "method": "delete"
-            },
-            "metadata": {
-                "in": "./lib/schemas/delete_forms__form_id_.in.json",
-                "out": "./lib/schemas/delete_forms__form_id_.out.json"
-            }
-        },
-        "get_form_fields__form_field_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Get details about single `FormField`",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/form_fields/{form_field_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_form_fields__form_field_id_.in.json",
-                "out": "./lib/schemas/get_form_fields__form_field_id_.out.json"
-            }
-        },
-        "get_forms__form_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "View form",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/forms/{form_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_forms__form_id_.in.json",
-                "out": "./lib/schemas/get_forms__form_id_.out.json"
-            }
-        },
-        "put_forms__form_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Edit a form",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/forms/{form_id}",
-                "method": "put"
-            },
-            "metadata": {
-                "in": "./lib/schemas/put_forms__form_id_.in.json",
-                "out": "./lib/schemas/put_forms__form_id_.out.json"
-            }
-        },
-        "get_invoice_lines__invoice_line_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "View invoice line",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/invoice_lines/{invoice_line_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_invoice_lines__invoice_line_id_.in.json",
-                "out": "./lib/schemas/get_invoice_lines__invoice_line_id_.out.json"
-            }
-        },
         "delete_invoice_lines__invoice_line_id_": {
             "main": "./lib/actions/action.js",
             "title": "Delete invoice line",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/invoice_lines/{invoice_line_id}",
                 "method": "delete"
@@ -1385,12 +927,6 @@
         "post_invoice_lines": {
             "main": "./lib/actions/action.js",
             "title": "Add invoice",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/invoice_lines",
                 "method": "post",
@@ -1401,15 +937,33 @@
                 "out": "./lib/schemas/post_invoice_lines.out.json"
             }
         },
+        "get_forms__form_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "View form",
+            "callParams": {
+                "pathName": "/forms/{form_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_forms__form_id_.in.json",
+                "out": "./lib/schemas/get_forms__form_id_.out.json"
+            }
+        },
+        "get_invoice_lines__invoice_line_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "View invoice line",
+            "callParams": {
+                "pathName": "/invoice_lines/{invoice_line_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_invoice_lines__invoice_line_id_.in.json",
+                "out": "./lib/schemas/get_invoice_lines__invoice_line_id_.out.json"
+            }
+        },
         "put_invoice_lines__invoice_line_id_": {
             "main": "./lib/actions/action.js",
             "title": "Edit invoice line",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/invoice_lines/{invoice_line_id}",
                 "method": "put",
@@ -1423,12 +977,6 @@
         "post_invoices": {
             "main": "./lib/actions/action.js",
             "title": "Add invoice",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/invoices",
                 "method": "post",
@@ -1439,33 +987,21 @@
                 "out": "./lib/schemas/post_invoices.out.json"
             }
         },
-        "get_mass_messages_users__mass_messages_user_id_": {
+        "get_invoices__invoice_id_": {
             "main": "./lib/actions/action.js",
-            "title": "View mass message",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "View invoice",
             "callParams": {
-                "pathName": "/mass_messages_users/{mass_messages_user_id}",
+                "pathName": "/invoices/{invoice_id}",
                 "method": "get"
             },
             "metadata": {
-                "in": "./lib/schemas/get_mass_messages_users__mass_messages_user_id_.in.json",
-                "out": "./lib/schemas/get_mass_messages_users__mass_messages_user_id_.out.json"
+                "in": "./lib/schemas/get_invoices__invoice_id_.in.json",
+                "out": "./lib/schemas/get_invoices__invoice_id_.out.json"
             }
         },
         "delete_invoices__invoice_id_": {
             "main": "./lib/actions/action.js",
             "title": "Delete invoice",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/invoices/{invoice_id}",
                 "method": "delete"
@@ -1478,12 +1014,6 @@
         "put_invoices__invoice_id_": {
             "main": "./lib/actions/action.js",
             "title": "Edit invoice",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/invoices/{invoice_id}",
                 "method": "put",
@@ -1494,33 +1024,9 @@
                 "out": "./lib/schemas/put_invoices__invoice_id_.out.json"
             }
         },
-        "delete_materials__material_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Delete material",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/materials/{material_id}",
-                "method": "delete"
-            },
-            "metadata": {
-                "in": "./lib/schemas/delete_materials__material_id_.in.json",
-                "out": "./lib/schemas/delete_materials__material_id_.out.json"
-            }
-        },
         "put_materials__material_id_": {
             "main": "./lib/actions/action.js",
             "title": "Edit material",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/materials/{material_id}",
                 "method": "put"
@@ -1530,33 +1036,33 @@
                 "out": "./lib/schemas/put_materials__material_id_.out.json"
             }
         },
-        "get_companies__company_id__integration_feature_settings__integration_feature_setting_id_": {
+        "delete_contacts__contact_id_": {
             "main": "./lib/actions/action.js",
-            "title": "Show details of 1 integration feature setting",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Delete a contact",
             "callParams": {
-                "pathName": "/companies/{company_id}/integration_feature_settings/{integration_feature_setting_id}",
-                "method": "get"
+                "pathName": "/contacts/{contact_id}",
+                "method": "delete"
             },
             "metadata": {
-                "in": "./lib/schemas/get_companies__company_id__integration_feature_settings__integration_feature_setting_id_.in.json",
-                "out": "./lib/schemas/get_companies__company_id__integration_feature_settings__integration_feature_setting_id_.out.json"
+                "in": "./lib/schemas/delete_contacts__contact_id_.in.json",
+                "out": "./lib/schemas/delete_contacts__contact_id_.out.json"
+            }
+        },
+        "delete_materials__material_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Delete material",
+            "callParams": {
+                "pathName": "/materials/{material_id}",
+                "method": "delete"
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_materials__material_id_.in.json",
+                "out": "./lib/schemas/delete_materials__material_id_.out.json"
             }
         },
         "get_materials__material_id_": {
             "main": "./lib/actions/action.js",
             "title": "View material",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/materials/{material_id}",
                 "method": "get"
@@ -1566,34 +1072,21 @@
                 "out": "./lib/schemas/get_materials__material_id_.out.json"
             }
         },
-        "post_materials__material_id__rentals_checkout_": {
+        "put_mass_messages_users__mass_messages_user_id_": {
             "main": "./lib/actions/action.js",
-            "title": "Checkout material rental",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Edit mass message",
             "callParams": {
-                "pathName": "/materials/{material_id}/rentals/checkout/",
-                "method": "post",
-                "requestContentType": "application/json"
+                "pathName": "/mass_messages_users/{mass_messages_user_id}",
+                "method": "put"
             },
             "metadata": {
-                "in": "./lib/schemas/post_materials__material_id__rentals_checkout_.in.json",
-                "out": "./lib/schemas/post_materials__material_id__rentals_checkout_.out.json"
+                "in": "./lib/schemas/put_mass_messages_users__mass_messages_user_id_.in.json",
+                "out": "./lib/schemas/put_mass_messages_users__mass_messages_user_id_.out.json"
             }
         },
         "post_materials__material_id__rentals_": {
             "main": "./lib/actions/action.js",
             "title": "Add material rental",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/materials/{material_id}/rentals/",
                 "method": "post",
@@ -1604,34 +1097,10 @@
                 "out": "./lib/schemas/post_materials__material_id__rentals_.out.json"
             }
         },
-        "get_invoices__invoice_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "View invoice",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/invoices/{invoice_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_invoices__invoice_id_.in.json",
-                "out": "./lib/schemas/get_invoices__invoice_id_.out.json"
-            }
-        },
         "put_materials__material_id__rentals__material_rental_id__": {
             "main": "./lib/actions/action.js",
             "title": "Edit material rental",
             "description": "Edit material rental",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/materials/{material_id}/rentals/{material_rental_id}/",
                 "method": "put"
@@ -1641,35 +1110,10 @@
                 "out": "./lib/schemas/put_materials__material_id__rentals__material_rental_id__.out.json"
             }
         },
-        "post_materials__material_id__rentals__material_rental_id__": {
-            "main": "./lib/actions/action.js",
-            "title": "Add material",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/materials/{material_id}/rentals/{material_rental_id}/",
-                "method": "post",
-                "requestContentType": "application/json"
-            },
-            "metadata": {
-                "in": "./lib/schemas/post_materials__material_id__rentals__material_rental_id__.in.json",
-                "out": "./lib/schemas/post_materials__material_id__rentals__material_rental_id__.out.json"
-            }
-        },
         "delete_materials__material_id__rentals__material_rental_id__": {
             "main": "./lib/actions/action.js",
             "title": "Delete material rental",
             "description": "Delete rental for material",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/materials/{material_id}/rentals/{material_rental_id}/",
                 "method": "delete"
@@ -1679,33 +1123,22 @@
                 "out": "./lib/schemas/delete_materials__material_id__rentals__material_rental_id__.out.json"
             }
         },
-        "get_payment_terms__payment_term_id_": {
+        "post_materials__material_id__rentals_checkout_": {
             "main": "./lib/actions/action.js",
-            "title": "Details of 1 payment term",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Checkout material rental",
             "callParams": {
-                "pathName": "/payment_terms/{payment_term_id}",
-                "method": "get"
+                "pathName": "/materials/{material_id}/rentals/checkout/",
+                "method": "post",
+                "requestContentType": "application/json"
             },
             "metadata": {
-                "in": "./lib/schemas/get_payment_terms__payment_term_id_.in.json",
-                "out": "./lib/schemas/get_payment_terms__payment_term_id_.out.json"
+                "in": "./lib/schemas/post_materials__material_id__rentals_checkout_.in.json",
+                "out": "./lib/schemas/post_materials__material_id__rentals_checkout_.out.json"
             }
         },
         "get_payment_term_types__payment_term_type_id_": {
             "main": "./lib/actions/action.js",
             "title": "Details of 1 payment term type",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/payment_term_types/{payment_term_type_id}",
                 "method": "get"
@@ -1715,33 +1148,21 @@
                 "out": "./lib/schemas/get_payment_term_types__payment_term_type_id_.out.json"
             }
         },
-        "put_expenses__expense_id_": {
+        "get_payment_terms__payment_term_id_": {
             "main": "./lib/actions/action.js",
-            "title": "Edit expense",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Details of 1 payment term",
             "callParams": {
-                "pathName": "/expenses/{expense_id}",
-                "method": "put"
+                "pathName": "/payment_terms/{payment_term_id}",
+                "method": "get"
             },
             "metadata": {
-                "in": "./lib/schemas/put_expenses__expense_id_.in.json",
-                "out": "./lib/schemas/put_expenses__expense_id_.out.json"
+                "in": "./lib/schemas/get_payment_terms__payment_term_id_.in.json",
+                "out": "./lib/schemas/get_payment_terms__payment_term_id_.out.json"
             }
         },
         "post_products": {
             "main": "./lib/actions/action.js",
             "title": "Add new product",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/products",
                 "method": "post",
@@ -1752,160 +1173,9 @@
                 "out": "./lib/schemas/post_products.out.json"
             }
         },
-        "delete_products__product_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Delete a product",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/products/{product_id}",
-                "method": "delete"
-            },
-            "metadata": {
-                "in": "./lib/schemas/delete_products__product_id_.in.json",
-                "out": "./lib/schemas/delete_products__product_id_.out.json"
-            }
-        },
-        "get_companies__company_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Details of 1 company",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/companies/{company_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_companies__company_id_.in.json",
-                "out": "./lib/schemas/get_companies__company_id_.out.json"
-            }
-        },
-        "get_products__product_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "View single product",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/products/{product_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_products__product_id_.in.json",
-                "out": "./lib/schemas/get_products__product_id_.out.json"
-            }
-        },
-        "put_mass_messages_users__mass_messages_user_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Edit mass message",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/mass_messages_users/{mass_messages_user_id}",
-                "method": "put"
-            },
-            "metadata": {
-                "in": "./lib/schemas/put_mass_messages_users__mass_messages_user_id_.in.json",
-                "out": "./lib/schemas/put_mass_messages_users__mass_messages_user_id_.out.json"
-            }
-        },
-        "post_projects": {
-            "main": "./lib/actions/action.js",
-            "title": "Add a project",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/projects",
-                "method": "post",
-                "requestContentType": "application/json"
-            },
-            "metadata": {
-                "in": "./lib/schemas/post_projects.in.json",
-                "out": "./lib/schemas/post_projects.out.json"
-            }
-        },
-        "put_products__product_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Edit a product",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/products/{product_id}",
-                "method": "put"
-            },
-            "metadata": {
-                "in": "./lib/schemas/put_products__product_id_.in.json",
-                "out": "./lib/schemas/put_products__product_id_.out.json"
-            }
-        },
-        "get_projects__project_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "View specific project",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/projects/{project_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_projects__project_id_.in.json",
-                "out": "./lib/schemas/get_projects__project_id_.out.json"
-            }
-        },
-        "delete_expense_lines__expense_line_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Delete expense line",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/expense_lines/{expense_line_id}",
-                "method": "delete"
-            },
-            "metadata": {
-                "in": "./lib/schemas/delete_expense_lines__expense_line_id_.in.json",
-                "out": "./lib/schemas/delete_expense_lines__expense_line_id_.out.json"
-            }
-        },
         "post_clocking_records": {
             "main": "./lib/actions/action.js",
             "title": "Create clocking record for authenticated user",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/clocking_records",
                 "method": "post",
@@ -1916,108 +1186,60 @@
                 "out": "./lib/schemas/post_clocking_records.out.json"
             }
         },
-        "delete_projects__project_id__files__file_id__": {
+        "get_mass_messages_users__mass_messages_user_id_": {
             "main": "./lib/actions/action.js",
-            "title": "Delete file",
-            "description": "Delete file uploaded to a project from wall post or form",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "View mass message",
             "callParams": {
-                "pathName": "/projects/{project_id}/files/{file_id}/",
-                "method": "delete"
-            },
-            "metadata": {
-                "in": "./lib/schemas/delete_projects__project_id__files__file_id__.in.json",
-                "out": "./lib/schemas/delete_projects__project_id__files__file_id__.out.json"
-            }
-        },
-        "delete_projects__project_id__project_files__project_file_id__": {
-            "main": "./lib/actions/action.js",
-            "title": "Delete project file",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/projects/{project_id}/project_files/{project_file_id}/",
-                "method": "delete"
-            },
-            "metadata": {
-                "in": "./lib/schemas/delete_projects__project_id__project_files__project_file_id__.in.json",
-                "out": "./lib/schemas/delete_projects__project_id__project_files__project_file_id__.out.json"
-            }
-        },
-        "put_projects__project_id__files__file_id__": {
-            "main": "./lib/actions/action.js",
-            "title": "Edit file",
-            "description": "Edit file uploaded to a project from wall post or form",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/projects/{project_id}/files/{file_id}/",
-                "method": "put"
-            },
-            "metadata": {
-                "in": "./lib/schemas/put_projects__project_id__files__file_id__.in.json",
-                "out": "./lib/schemas/put_projects__project_id__files__file_id__.out.json"
-            }
-        },
-        "post_projects__project_id__project_files": {
-            "main": "./lib/actions/action.js",
-            "title": "Add project file to projects",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/projects/{project_id}/project_files",
-                "method": "post",
-                "requestContentType": "multipart/form-data"
-            },
-            "metadata": {
-                "in": "./lib/schemas/post_projects__project_id__project_files.in.json",
-                "out": "./lib/schemas/post_projects__project_id__project_files.out.json"
-            }
-        },
-        "get_projects__project_id__users__user_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "View specific user assigned to project",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/projects/{project_id}/users/{user_id}",
+                "pathName": "/mass_messages_users/{mass_messages_user_id}",
                 "method": "get"
             },
             "metadata": {
-                "in": "./lib/schemas/get_projects__project_id__users__user_id_.in.json",
-                "out": "./lib/schemas/get_projects__project_id__users__user_id_.out.json"
+                "in": "./lib/schemas/get_mass_messages_users__mass_messages_user_id_.in.json",
+                "out": "./lib/schemas/get_mass_messages_users__mass_messages_user_id_.out.json"
+            }
+        },
+        "delete_products__product_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Delete a product",
+            "callParams": {
+                "pathName": "/products/{product_id}",
+                "method": "delete"
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_products__product_id_.in.json",
+                "out": "./lib/schemas/delete_products__product_id_.out.json"
+            }
+        },
+        "post_forms": {
+            "main": "./lib/actions/action.js",
+            "title": "Add new form",
+            "description": "Used to add a form into the system",
+            "callParams": {
+                "pathName": "/forms",
+                "method": "post",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_forms.in.json",
+                "out": "./lib/schemas/post_forms.out.json"
+            }
+        },
+        "post_projects": {
+            "main": "./lib/actions/action.js",
+            "title": "Add a project",
+            "callParams": {
+                "pathName": "/projects",
+                "method": "post",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_projects.in.json",
+                "out": "./lib/schemas/post_projects.out.json"
             }
         },
         "put_projects__project_id_": {
             "main": "./lib/actions/action.js",
             "title": "Edit a project",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/projects/{project_id}",
                 "method": "put",
@@ -2028,15 +1250,121 @@
                 "out": "./lib/schemas/put_projects__project_id_.out.json"
             }
         },
+        "post_materials__material_id__rentals__material_rental_id__": {
+            "main": "./lib/actions/action.js",
+            "title": "Add material",
+            "callParams": {
+                "pathName": "/materials/{material_id}/rentals/{material_rental_id}/",
+                "method": "post",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_materials__material_id__rentals__material_rental_id__.in.json",
+                "out": "./lib/schemas/post_materials__material_id__rentals__material_rental_id__.out.json"
+            }
+        },
+        "get_project_statuses__project_status_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Get details about one contact type",
+            "callParams": {
+                "pathName": "/project_statuses/{project_status_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_project_statuses__project_status_id_.in.json",
+                "out": "./lib/schemas/get_project_statuses__project_status_id_.out.json"
+            }
+        },
+        "get_projects__project_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "View specific project",
+            "callParams": {
+                "pathName": "/projects/{project_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_projects__project_id_.in.json",
+                "out": "./lib/schemas/get_projects__project_id_.out.json"
+            }
+        },
+        "delete_projects__project_id__files__file_id__": {
+            "main": "./lib/actions/action.js",
+            "title": "Delete file",
+            "description": "Delete file uploaded to a project from wall post or form",
+            "callParams": {
+                "pathName": "/projects/{project_id}/files/{file_id}/",
+                "method": "delete"
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_projects__project_id__files__file_id__.in.json",
+                "out": "./lib/schemas/delete_projects__project_id__files__file_id__.out.json"
+            }
+        },
+        "post_projects__project_id__project_files": {
+            "main": "./lib/actions/action.js",
+            "title": "Add project file to projects",
+            "callParams": {
+                "pathName": "/projects/{project_id}/project_files",
+                "method": "post",
+                "requestContentType": "multipart/form-data"
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_projects__project_id__project_files.in.json",
+                "out": "./lib/schemas/post_projects__project_id__project_files.out.json"
+            }
+        },
+        "put_projects__project_id__files__file_id__": {
+            "main": "./lib/actions/action.js",
+            "title": "Edit file",
+            "description": "Edit file uploaded to a project from wall post or form",
+            "callParams": {
+                "pathName": "/projects/{project_id}/files/{file_id}/",
+                "method": "put"
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_projects__project_id__files__file_id__.in.json",
+                "out": "./lib/schemas/put_projects__project_id__files__file_id__.out.json"
+            }
+        },
+        "get_projects__project_id__users__user_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "View specific user assigned to project",
+            "callParams": {
+                "pathName": "/projects/{project_id}/users/{user_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_projects__project_id__users__user_id_.in.json",
+                "out": "./lib/schemas/get_projects__project_id__users__user_id_.out.json"
+            }
+        },
+        "put_products__product_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Edit a product",
+            "callParams": {
+                "pathName": "/products/{product_id}",
+                "method": "put"
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_products__product_id_.in.json",
+                "out": "./lib/schemas/put_products__product_id_.out.json"
+            }
+        },
+        "put_projects__project_id__project_files__project_file_id__": {
+            "main": "./lib/actions/action.js",
+            "title": "Edit project file",
+            "callParams": {
+                "pathName": "/projects/{project_id}/project_files/{project_file_id}/",
+                "method": "put"
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_projects__project_id__project_files__project_file_id__.in.json",
+                "out": "./lib/schemas/put_projects__project_id__project_files__project_file_id__.out.json"
+            }
+        },
         "post_stock_locations": {
             "main": "./lib/actions/action.js",
             "title": "Add new stock_locations",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/stock_locations",
                 "method": "post",
@@ -2047,70 +1375,9 @@
                 "out": "./lib/schemas/post_stock_locations.out.json"
             }
         },
-        "post_projects__project_id__users_": {
-            "main": "./lib/actions/action.js",
-            "title": "Add user to project",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/projects/{project_id}/users/",
-                "method": "post",
-                "requestContentType": "application/json"
-            },
-            "metadata": {
-                "in": "./lib/schemas/post_projects__project_id__users_.in.json",
-                "out": "./lib/schemas/post_projects__project_id__users_.out.json"
-            }
-        },
-        "put_projects__project_id__project_files__project_file_id__": {
-            "main": "./lib/actions/action.js",
-            "title": "Edit project file",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/projects/{project_id}/project_files/{project_file_id}/",
-                "method": "put"
-            },
-            "metadata": {
-                "in": "./lib/schemas/put_projects__project_id__project_files__project_file_id__.in.json",
-                "out": "./lib/schemas/put_projects__project_id__project_files__project_file_id__.out.json"
-            }
-        },
-        "delete_stock_locations__location_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Delete location",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/stock_locations/{location_id}",
-                "method": "delete"
-            },
-            "metadata": {
-                "in": "./lib/schemas/delete_stock_locations__location_id_.in.json",
-                "out": "./lib/schemas/delete_stock_locations__location_id_.out.json"
-            }
-        },
         "get_stock_locations__location_id_": {
             "main": "./lib/actions/action.js",
             "title": "View single location",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/stock_locations/{location_id}",
                 "method": "get"
@@ -2120,51 +1387,33 @@
                 "out": "./lib/schemas/get_stock_locations__location_id_.out.json"
             }
         },
-        "get_project_statuses__project_status_id_": {
+        "put_stock_locations__location_id_": {
             "main": "./lib/actions/action.js",
-            "title": "Get details about one contact type",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Edit location",
             "callParams": {
-                "pathName": "/project_statuses/{project_status_id}",
-                "method": "get"
+                "pathName": "/stock_locations/{location_id}",
+                "method": "put"
             },
             "metadata": {
-                "in": "./lib/schemas/get_project_statuses__project_status_id_.in.json",
-                "out": "./lib/schemas/get_project_statuses__project_status_id_.out.json"
+                "in": "./lib/schemas/put_stock_locations__location_id_.in.json",
+                "out": "./lib/schemas/put_stock_locations__location_id_.out.json"
             }
         },
-        "delete_time_entries__time_entry_id_": {
+        "delete_projects__project_id__project_files__project_file_id__": {
             "main": "./lib/actions/action.js",
-            "title": "Delete time entry",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Delete project file",
             "callParams": {
-                "pathName": "/time_entries/{time_entry_id}",
+                "pathName": "/projects/{project_id}/project_files/{project_file_id}/",
                 "method": "delete"
             },
             "metadata": {
-                "in": "./lib/schemas/delete_time_entries__time_entry_id_.in.json",
-                "out": "./lib/schemas/delete_time_entries__time_entry_id_.out.json"
+                "in": "./lib/schemas/delete_projects__project_id__project_files__project_file_id__.in.json",
+                "out": "./lib/schemas/delete_projects__project_id__project_files__project_file_id__.out.json"
             }
         },
         "post_time_entries": {
             "main": "./lib/actions/action.js",
             "title": "Add new time entry",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/time_entries",
                 "method": "post",
@@ -2175,51 +1424,69 @@
                 "out": "./lib/schemas/post_time_entries.out.json"
             }
         },
-        "put_time_entries__time_entry_id_": {
+        "delete_stock_locations__location_id_": {
             "main": "./lib/actions/action.js",
-            "title": "Edit time entry",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/time_entries/{time_entry_id}",
-                "method": "put"
-            },
-            "metadata": {
-                "in": "./lib/schemas/put_time_entries__time_entry_id_.in.json",
-                "out": "./lib/schemas/put_time_entries__time_entry_id_.out.json"
-            }
-        },
-        "put_stock_locations__location_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Edit location",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Delete location",
             "callParams": {
                 "pathName": "/stock_locations/{location_id}",
-                "method": "put"
+                "method": "delete"
             },
             "metadata": {
-                "in": "./lib/schemas/put_stock_locations__location_id_.in.json",
-                "out": "./lib/schemas/put_stock_locations__location_id_.out.json"
+                "in": "./lib/schemas/delete_stock_locations__location_id_.in.json",
+                "out": "./lib/schemas/delete_stock_locations__location_id_.out.json"
+            }
+        },
+        "delete_expense_files__expense_file_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Delete file",
+            "callParams": {
+                "pathName": "/expense_files/{expense_file_id}",
+                "method": "delete"
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_expense_files__expense_file_id_.in.json",
+                "out": "./lib/schemas/delete_expense_files__expense_file_id_.out.json"
+            }
+        },
+        "get_time_entries__time_entry_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "View time entry",
+            "callParams": {
+                "pathName": "/time_entries/{time_entry_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_time_entries__time_entry_id_.in.json",
+                "out": "./lib/schemas/get_time_entries__time_entry_id_.out.json"
+            }
+        },
+        "delete_time_entries__time_entry_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Delete time entry",
+            "callParams": {
+                "pathName": "/time_entries/{time_entry_id}",
+                "method": "delete"
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_time_entries__time_entry_id_.in.json",
+                "out": "./lib/schemas/delete_time_entries__time_entry_id_.out.json"
+            }
+        },
+        "delete_time_entry_types__time_entry_type_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Delete time entry type",
+            "callParams": {
+                "pathName": "/time_entry_types/{time_entry_type_id}",
+                "method": "delete"
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_time_entry_types__time_entry_type_id_.in.json",
+                "out": "./lib/schemas/delete_time_entry_types__time_entry_type_id_.out.json"
             }
         },
         "delete_projects__project_id_": {
             "main": "./lib/actions/action.js",
             "title": "Delete a project",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/projects/{project_id}",
                 "method": "delete"
@@ -2229,15 +1496,58 @@
                 "out": "./lib/schemas/delete_projects__project_id_.out.json"
             }
         },
+        "get_time_entry_intervals__time_entry_interval_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "View time entry interval",
+            "callParams": {
+                "pathName": "/time_entry_intervals/{time_entry_interval_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_time_entry_intervals__time_entry_interval_id_.in.json",
+                "out": "./lib/schemas/get_time_entry_intervals__time_entry_interval_id_.out.json"
+            }
+        },
+        "get_time_entry_types__time_entry_type_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "View time entry type",
+            "callParams": {
+                "pathName": "/time_entry_types/{time_entry_type_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_time_entry_types__time_entry_type_id_.in.json",
+                "out": "./lib/schemas/get_time_entry_types__time_entry_type_id_.out.json"
+            }
+        },
+        "get_time_entry_unit_types__time_entry_unit_type_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "View time entry unit type",
+            "callParams": {
+                "pathName": "/time_entry_unit_types/{time_entry_unit_type_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_time_entry_unit_types__time_entry_unit_type_id_.in.json",
+                "out": "./lib/schemas/get_time_entry_unit_types__time_entry_unit_type_id_.out.json"
+            }
+        },
+        "post_projects__project_id__users_": {
+            "main": "./lib/actions/action.js",
+            "title": "Add user to project",
+            "callParams": {
+                "pathName": "/projects/{project_id}/users/",
+                "method": "post",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_projects__project_id__users_.in.json",
+                "out": "./lib/schemas/post_projects__project_id__users_.out.json"
+            }
+        },
         "post_time_entry_types": {
             "main": "./lib/actions/action.js",
             "title": "Add new time entry type",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/time_entry_types",
                 "method": "post",
@@ -2248,124 +1558,9 @@
                 "out": "./lib/schemas/post_time_entry_types.out.json"
             }
         },
-        "get_time_entries__time_entry_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "View time entry",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/time_entries/{time_entry_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_time_entries__time_entry_id_.in.json",
-                "out": "./lib/schemas/get_time_entries__time_entry_id_.out.json"
-            }
-        },
-        "get_time_entry_types__time_entry_type_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "View time entry type",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/time_entry_types/{time_entry_type_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_time_entry_types__time_entry_type_id_.in.json",
-                "out": "./lib/schemas/get_time_entry_types__time_entry_type_id_.out.json"
-            }
-        },
-        "put_time_entry_types__time_entry_type_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Edit time entry type",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/time_entry_types/{time_entry_type_id}",
-                "method": "put"
-            },
-            "metadata": {
-                "in": "./lib/schemas/put_time_entry_types__time_entry_type_id_.in.json",
-                "out": "./lib/schemas/put_time_entry_types__time_entry_type_id_.out.json"
-            }
-        },
-        "get_time_entry_intervals__time_entry_interval_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "View time entry interval",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/time_entry_intervals/{time_entry_interval_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_time_entry_intervals__time_entry_interval_id_.in.json",
-                "out": "./lib/schemas/get_time_entry_intervals__time_entry_interval_id_.out.json"
-            }
-        },
-        "delete_time_entry_types__time_entry_type_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Delete time entry type",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/time_entry_types/{time_entry_type_id}",
-                "method": "delete"
-            },
-            "metadata": {
-                "in": "./lib/schemas/delete_time_entry_types__time_entry_type_id_.in.json",
-                "out": "./lib/schemas/delete_time_entry_types__time_entry_type_id_.out.json"
-            }
-        },
-        "post_users": {
-            "main": "./lib/actions/action.js",
-            "title": "Add user to company",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/users",
-                "method": "post",
-                "requestContentType": "application/json"
-            },
-            "metadata": {
-                "in": "./lib/schemas/post_users.in.json",
-                "out": "./lib/schemas/post_users.out.json"
-            }
-        },
         "delete_users__user_id_": {
             "main": "./lib/actions/action.js",
             "title": "Delete user",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/users/{user_id}",
                 "method": "delete"
@@ -2375,51 +1570,9 @@
                 "out": "./lib/schemas/delete_users__user_id_.out.json"
             }
         },
-        "get_wall_comments__wall_comment_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "View wall comment",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/wall_comments/{wall_comment_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_wall_comments__wall_comment_id_.in.json",
-                "out": "./lib/schemas/get_wall_comments__wall_comment_id_.out.json"
-            }
-        },
-        "get_users__user_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "View user",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/users/{user_id}",
-                "method": "get"
-            },
-            "metadata": {
-                "in": "./lib/schemas/get_users__user_id_.in.json",
-                "out": "./lib/schemas/get_users__user_id_.out.json"
-            }
-        },
         "get_time_entry_value_types__time_entry_value_type_id_": {
             "main": "./lib/actions/action.js",
             "title": "View time entry value type",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/time_entry_value_types/{time_entry_value_type_id}",
                 "method": "get"
@@ -2429,51 +1582,45 @@
                 "out": "./lib/schemas/get_time_entry_value_types__time_entry_value_type_id_.out.json"
             }
         },
-        "get_vendor_products__vendor_product_id_": {
+        "get_users__user_id_": {
             "main": "./lib/actions/action.js",
-            "title": "View single vendor product",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "View user",
             "callParams": {
-                "pathName": "/vendor_products/{vendor_product_id}",
+                "pathName": "/users/{user_id}",
                 "method": "get"
             },
             "metadata": {
-                "in": "./lib/schemas/get_vendor_products__vendor_product_id_.in.json",
-                "out": "./lib/schemas/get_vendor_products__vendor_product_id_.out.json"
+                "in": "./lib/schemas/get_users__user_id_.in.json",
+                "out": "./lib/schemas/get_users__user_id_.out.json"
             }
         },
-        "get_time_entry_unit_types__time_entry_unit_type_id_": {
+        "put_time_entry_types__time_entry_type_id_": {
             "main": "./lib/actions/action.js",
-            "title": "View time entry unit type",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
+            "title": "Edit time entry type",
             "callParams": {
-                "pathName": "/time_entry_unit_types/{time_entry_unit_type_id}",
-                "method": "get"
+                "pathName": "/time_entry_types/{time_entry_type_id}",
+                "method": "put"
             },
             "metadata": {
-                "in": "./lib/schemas/get_time_entry_unit_types__time_entry_unit_type_id_.in.json",
-                "out": "./lib/schemas/get_time_entry_unit_types__time_entry_unit_type_id_.out.json"
+                "in": "./lib/schemas/put_time_entry_types__time_entry_type_id_.in.json",
+                "out": "./lib/schemas/put_time_entry_types__time_entry_type_id_.out.json"
+            }
+        },
+        "put_users__user_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Edit user",
+            "callParams": {
+                "pathName": "/users/{user_id}",
+                "method": "put"
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_users__user_id_.in.json",
+                "out": "./lib/schemas/put_users__user_id_.out.json"
             }
         },
         "post_wall_comments": {
             "main": "./lib/actions/action.js",
             "title": "Add wall comment",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/wall_comments",
                 "method": "post",
@@ -2484,15 +1631,70 @@
                 "out": "./lib/schemas/post_wall_comments.out.json"
             }
         },
+        "get_vendor_products__vendor_product_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "View single vendor product",
+            "callParams": {
+                "pathName": "/vendor_products/{vendor_product_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_vendor_products__vendor_product_id_.in.json",
+                "out": "./lib/schemas/get_vendor_products__vendor_product_id_.out.json"
+            }
+        },
+        "get_products__product_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "View single product",
+            "callParams": {
+                "pathName": "/products/{product_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_products__product_id_.in.json",
+                "out": "./lib/schemas/get_products__product_id_.out.json"
+            }
+        },
+        "post_users": {
+            "main": "./lib/actions/action.js",
+            "title": "Add user to company",
+            "callParams": {
+                "pathName": "/users",
+                "method": "post",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_users.in.json",
+                "out": "./lib/schemas/post_users.out.json"
+            }
+        },
+        "get_wall_comments__wall_comment_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "View wall comment",
+            "callParams": {
+                "pathName": "/wall_comments/{wall_comment_id}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_wall_comments__wall_comment_id_.in.json",
+                "out": "./lib/schemas/get_wall_comments__wall_comment_id_.out.json"
+            }
+        },
+        "put_time_entries__time_entry_id_": {
+            "main": "./lib/actions/action.js",
+            "title": "Edit time entry",
+            "callParams": {
+                "pathName": "/time_entries/{time_entry_id}",
+                "method": "put"
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_time_entries__time_entry_id_.in.json",
+                "out": "./lib/schemas/put_time_entries__time_entry_id_.out.json"
+            }
+        },
         "post_wall_posts": {
             "main": "./lib/actions/action.js",
             "title": "Add a wall post",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/wall_posts",
                 "method": "post",
@@ -2506,12 +1708,6 @@
         "delete_projects__project_id__users__user_id_": {
             "main": "./lib/actions/action.js",
             "title": "Delete user from project",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/projects/{project_id}/users/{user_id}",
                 "method": "delete"
@@ -2524,12 +1720,6 @@
         "get_wall_posts__wall_post_id_": {
             "main": "./lib/actions/action.js",
             "title": "View wall post",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/wall_posts/{wall_post_id}",
                 "method": "get"
@@ -2537,24 +1727,6 @@
             "metadata": {
                 "in": "./lib/schemas/get_wall_posts__wall_post_id_.in.json",
                 "out": "./lib/schemas/get_wall_posts__wall_post_id_.out.json"
-            }
-        },
-        "put_users__user_id_": {
-            "main": "./lib/actions/action.js",
-            "title": "Edit user",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
-            "callParams": {
-                "pathName": "/users/{user_id}",
-                "method": "put"
-            },
-            "metadata": {
-                "in": "./lib/schemas/put_users__user_id_.in.json",
-                "out": "./lib/schemas/put_users__user_id_.out.json"
             }
         }
     }
